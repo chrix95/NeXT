@@ -5,7 +5,9 @@
       <ul>
         <li><img src="images/placeholder.jpg" alt="" /></li>
         <li>
-          <h5>Victoria Baker <span> Santa Ana, CA</span></h5>
+          <h5>
+            {{ user.username }} <span> {{ user.email }}</span>
+          </h5>
         </li>
         <li></li>
       </ul>
@@ -14,13 +16,21 @@
     <div class="sb2-13">
       <ul class="collapsible" data-collapsible="accordion">
         <li>
-          <a href="admin.html" class="menu-active"
-            ><i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard</a
+          <router-link
+            href="#"
+            to="/dashboard"
+            :class="currentRoute == 'dashboard' ? 'menu-active' : ''"
+            ><i class="fa fa-bar-chart" aria-hidden="true"></i>
+            Dashboard</router-link
           >
         </li>
-        <li>
-          <a href="admin-setting.html"
-            ><i class="fa fa-cogs" aria-hidden="true"></i> Site Setting</a
+        <li v-if="userType == 'super'">
+          <router-link
+            href="#"
+            to="/all-admin"
+            :class="currentRoute == 'all Admin' ? 'menu-active' : ''"
+            ><i class="fa fa-cogs" aria-hidden="true"></i> All
+            Admins</router-link
           >
         </li>
         <li>
@@ -173,6 +183,14 @@
   </div>
 </template>
 <script>
-export default {};
+import { mapState } from "vuex";
+export default {
+  computed: {
+    ...mapState(["user", "userType"]),
+    currentRoute() {
+      return this.$route.name;
+    }
+  }
+};
 </script>
 <style scoped></style>

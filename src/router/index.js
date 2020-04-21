@@ -3,6 +3,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Login from "../views/Login.vue";
 import Dashboard from "../views/Dashboard.vue";
+import AllAdmin from "../views/AllAdmin.vue";
 
 Vue.use(VueRouter);
 
@@ -17,6 +18,12 @@ const routes = [
     path: "/dashboard",
     name: "dashboard",
     component: Dashboard,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: "/all-admin",
+    name: "all Admin",
+    component: AllAdmin,
     meta: { requiresAuth: true }
   }
 ];

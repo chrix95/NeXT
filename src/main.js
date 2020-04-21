@@ -17,7 +17,7 @@ new Vue({
     const userString = localStorage.getItem("login");
     if (userString) {
       const userData = JSON.parse(userString);
-      this.$store.commit("SET_USER_DATA", userData);
+      this.$store.dispatch("reloadUserData", userData);
     }
     axios.interceptors.response.use(
       response => response,
@@ -25,7 +25,7 @@ new Vue({
         if (error.response.status === 401) {
           this.$store.dispatch("logout");
         }
-        return Promise.reject(error)
+        return Promise.reject(error);
       }
     );
   },

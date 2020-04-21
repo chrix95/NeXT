@@ -8,12 +8,14 @@ export default new Vuex.Store({
   state: {
     token: null,
     user: null,
-    isUserLoggedIn: false
+    isUserLoggedIn: false,
+    userType: null
   },
   mutations: {
     SET_USER_DATA(state, credentials) {
       state.token = credentials.token;
       state.user = credentials.data;
+      state.userType = credentials.data.type;
       localStorage.setItem("login", JSON.stringify(credentials));
       state.isUserLoggedIn = true;
       axios.defaults.headers.common[
@@ -27,6 +29,9 @@ export default new Vuex.Store({
   },
   actions: {
     login({ commit }, credentials) {
+      commit("SET_USER_DATA", credentials);
+    },
+    reloadUserData({ commit }, credentials) {
       commit("SET_USER_DATA", credentials);
     },
     logout({ commit }) {

@@ -1,21 +1,7 @@
 <template>
   <div class="sb2-2">
     <!--== breadcrumbs ==-->
-    <div class="sb2-2-2">
-      <ul>
-        <li>
-          <a href="index.html"
-            ><i class="fa fa-home" aria-hidden="true"></i> Home</a
-          >
-        </li>
-        <li class="active-bre"><a href="#"> Dashboard</a></li>
-        <li class="page-back">
-          <a href="index.html"
-            ><i class="fa fa-backward" aria-hidden="true"></i> Back</a
-          >
-        </li>
-      </ul>
-    </div>
+    <breadcrumb />
     <!--== DASHBOARD INFO ==-->
     <div class="sb2-2-1">
       <h2>Admin Dashboard</h2>
@@ -1235,7 +1221,7 @@
 <script>
 /* eslint-disable no-undef */
 // import AuthenticationService from "@/services/AuthenticationService";
-// import { mapState } from "vuex";
+import Breadcrumb from "@/components/_partials/Breadcrumb";
 export default {
   // computed: mapState(["token"]),
   name: "Dashboard",
@@ -1252,6 +1238,9 @@ export default {
         content: "We will fix this soon",
       },
     ],
+  },
+  components: {
+    Breadcrumb
   },
   data() {
     return {};

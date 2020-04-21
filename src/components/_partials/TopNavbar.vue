@@ -9,9 +9,9 @@
         <a href="#" class="atab-menu"
           ><i class="fa fa-bars tab-menu" aria-hidden="true"></i
         ></a>
-        <a href="index.html" class="logo"
+        <router-link to="/dashboard" class="logo"
           ><img src="images/logo1.png" alt="" />
-        </a>
+        </router-link>
       </div>
       <!--== SEARCH ==-->
       <div class="col-md-6 col-sm-6 mob-hide">
@@ -57,7 +57,11 @@
         </a>
 
         <!-- Dropdown Structure -->
-        <ul id="top-menu" class="dropdown-content top-menu-sty">
+        <ul
+          id="top-menu"
+          class="dropdown-content top-menu-sty"
+          :class="active ? 'active' : ''"
+        >
           <li>
             <a href="admin-panel-setting.html" class="waves-effect"
               ><i class="fa fa-cogs" aria-hidden="true"></i>Admin Setting</a
@@ -79,11 +83,21 @@
 </template>
 <script>
 export default {
+  data() {
+    return {
+      active: false
+    };
+  },
   methods: {
     logout() {
       this.$store.dispatch("logout");
     }
   }
-}
+};
 </script>
-<style scoped></style>
+<style scoped>
+.active {
+  display: block;
+  opacity: 1;
+}
+</style>

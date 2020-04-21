@@ -97,10 +97,11 @@ export default {
       if (this.validateLogin()) {
         AuthenticationService.login(this.user)
           .then(result => {
-            this.$store.dispatch("login", result);
+            this.$store.dispatch("login", result.data);
             this.$router.push({
               name: "dashboard"
             });
+            location.reload();
           })
           .catch(() => {
             this.error = "Invalid credentials";
