@@ -5,8 +5,10 @@ import router from "./router";
 import store from "./store";
 import { sync } from "vuex-router-sync";
 import axios from "axios";
+import VueSimpleAlert from "vue-simple-alert";
 
 Vue.config.productionTip = false;
+Vue.use(VueSimpleAlert);
 
 sync(store, router);
 

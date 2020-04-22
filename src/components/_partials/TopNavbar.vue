@@ -1,88 +1,161 @@
 <template>
-  <div class="container-fluid sb1">
-    <div class="row">
-      <!--== LOGO ==-->
-      <div class="col-md-2 col-sm-3 col-xs-6 sb1-1">
-        <a href="#" class="btn-close-menu"
-          ><i class="fa fa-times" aria-hidden="true"></i
-        ></a>
-        <a href="#" class="atab-menu"
-          ><i class="fa fa-bars tab-menu" aria-hidden="true"></i
-        ></a>
-        <router-link to="/dashboard" class="logo"
-          ><img src="images/logo1.png" alt="" />
-        </router-link>
-      </div>
-      <!--== SEARCH ==-->
-      <div class="col-md-6 col-sm-6 mob-hide">
-        <form class="app-search">
-          <input type="text" placeholder="Search..." class="form-control" />
-          <a href="#"><i class="fa fa-search"></i></a>
-        </form>
-      </div>
-      <!--== NOTIFICATION ==-->
-      <div class="col-md-2 tab-hide">
-        <div class="top-not-cen">
-          <a
-            class="waves-effect btn-noti"
-            href="admin-all-enquiry.html"
-            title="all enquiry messages"
-            ><i class="fa fa-commenting-o" aria-hidden="true"></i
-            ><span>5</span></a
+  <div class="app-header header-shadow">
+    <div class="app-header__logo">
+      <router-link to="/dashboard">
+        <div class="logo-src"></div>
+      </router-link>
+      <div class="header__pane ml-auto">
+        <div>
+          <button
+            type="button"
+            class="hamburger close-sidebar-btn hamburger--elastic"
+            data-class="closed-sidebar"
           >
-          <a
-            class="waves-effect btn-noti"
-            href="admin-course-enquiry.html"
-            title="course booking messages"
-            ><i class="fa fa-envelope-o" aria-hidden="true"></i
-            ><span>5</span></a
-          >
-          <a
-            class="waves-effect btn-noti"
-            href="admin-admission-enquiry.html"
-            title="admission enquiry"
-            ><i class="fa fa-tag" aria-hidden="true"></i><span>5</span></a
-          >
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+            </span>
+          </button>
         </div>
       </div>
-      <!--== MY ACCCOUNT ==-->
-      <div class="col-md-2 col-sm-3 col-xs-6">
-        <!-- Dropdown Trigger -->
-        <a
-          class="waves-effect dropdown-button top-user-pro"
-          href="#"
-          data-activates="top-menu"
-          ><img src="images/user/6.png" alt="" />My Account
-          <i class="fa fa-angle-down" aria-hidden="true"></i>
-        </a>
-
-        <!-- Dropdown Structure -->
-        <ul
-          id="top-menu"
-          class="dropdown-content top-menu-sty"
-          :class="active ? 'active' : ''"
+    </div>
+    <div class="app-header__mobile-menu">
+      <div>
+        <button
+          type="button"
+          class="hamburger hamburger--elastic mobile-toggle-nav"
         >
-          <li>
-            <a href="admin-panel-setting.html" class="waves-effect"
-              ><i class="fa fa-cogs" aria-hidden="true"></i>Admin Setting</a
-            >
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="app-header__menu">
+      <span>
+        <button
+          type="button"
+          class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav"
+        >
+          <span class="btn-icon-wrapper">
+            <i class="fa fa-ellipsis-v fa-w-6"></i>
+          </span>
+        </button>
+      </span>
+    </div>
+    <div class="app-header__content">
+      <div class="app-header-left">
+        <div class="search-wrapper">
+          <div class="input-holder">
+            <input
+              type="text"
+              class="search-input"
+              placeholder="Type to search"
+            />
+            <button class="search-icon"><span></span></button>
+          </div>
+          <button class="close"></button>
+        </div>
+        <ul class="header-menu nav">
+          <li class="nav-item">
+            <a href="javascript:void(0);" class="nav-link">
+              <i class="nav-link-icon fa fa-database"> </i>
+              Statistics
+            </a>
           </li>
-          <li class="divider"></li>
-          <li>
-            <a
-              href="#"
-              class="ho-dr-con-last waves-effect"
-              @click.prevent="logout()"
-              ><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a
-            >
+          <li class="btn-group nav-item">
+            <a href="javascript:void(0);" class="nav-link">
+              <i class="nav-link-icon fa fa-edit"></i>
+              Projects
+            </a>
+          </li>
+          <li class="dropdown nav-item">
+            <a href="javascript:void(0);" class="nav-link">
+              <i class="nav-link-icon fa fa-cog"></i>
+              Settings
+            </a>
           </li>
         </ul>
+      </div>
+      <div class="app-header-right">
+        <div class="header-btn-lg pr-0">
+          <div class="widget-content p-0">
+            <div class="widget-content-wrapper">
+              <div class="widget-content-left">
+                <div class="btn-group">
+                  <a
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    class="p-0 btn"
+                  >
+                    <img
+                      width="42"
+                      class="rounded-circle"
+                      src="assets/images/avatars/1.jpg"
+                      alt=""
+                    />
+                    <i class="fa fa-angle-down ml-2 opacity-8"></i>
+                  </a>
+                  <div
+                    tabindex="-1"
+                    role="menu"
+                    aria-hidden="true"
+                    class="dropdown-menu dropdown-menu-right"
+                  >
+                    <button type="button" tabindex="0" class="dropdown-item">
+                      User Account
+                    </button>
+                    <button type="button" tabindex="0" class="dropdown-item">
+                      Settings
+                    </button>
+                    <h6 tabindex="-1" class="dropdown-header">Header</h6>
+                    <button type="button" tabindex="0" class="dropdown-item">
+                      Actions
+                    </button>
+                    <div tabindex="-1" class="dropdown-divider"></div>
+                    <button
+                      type="button"
+                      tabindex="0"
+                      class="dropdown-item"
+                      @click.prevent="logout()"
+                    >
+                      Log out
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="widget-content-left  ml-3 header-user-info">
+                <div class="widget-heading">
+                  {{ user.username }}
+                </div>
+                <div class="widget-subheading">
+                  {{ userType }}
+                </div>
+              </div>
+              <div class="widget-content-right header-user-info ml-3">
+                <button
+                  type="button"
+                  class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example"
+                >
+                  <i class="fa text-white fa-calendar pr-1 pl-1"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { mapState } from "vuex";
 export default {
+  computed: {
+    ...mapState(["user", "userType"]),
+    currentRoute() {
+      return this.$route.name;
+    }
+  },
   data() {
     return {
       active: false
@@ -91,6 +164,7 @@ export default {
   methods: {
     logout() {
       this.$store.dispatch("logout");
+      this.$fire("Logout sucessful");
     }
   }
 };

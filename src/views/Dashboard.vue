@@ -1,1215 +1,831 @@
 <template>
-  <div class="sb2-2">
-    <!--== breadcrumbs ==-->
+  <div class="app-main__inner">
     <breadcrumb />
-    <!--== DASHBOARD INFO ==-->
-    <div class="sb2-2-1">
-      <h2>Admin Dashboard</h2>
-      <p>
-        The .table class adds basic styling (light padding and only horizontal
-        dividers) to a table:
-      </p>
-      <div class="db-2">
-        <ul>
-          <li>
-            <div class="dash-book dash-b-1">
-              <h5>All Courses</h5>
-              <h4>948</h4>
-              <a href="#">View more</a>
+    <div class="row">
+      <div class="col-md-6 col-xl-4">
+        <div class="card mb-3 widget-content bg-midnight-bloom">
+          <div class="widget-content-wrapper text-white">
+            <div class="widget-content-left">
+              <div class="widget-heading">Total Orders</div>
+              <div class="widget-subheading">Last year expenses</div>
             </div>
-          </li>
-          <li>
-            <div class="dash-book dash-b-2">
-              <h5>Admission</h5>
-              <h4>672</h4>
-              <a href="#">View more</a>
+            <div class="widget-content-right">
+              <div class="widget-numbers text-white"><span>1896</span></div>
             </div>
-          </li>
-          <li>
-            <div class="dash-book dash-b-3">
-              <h5>Students</h5>
-              <h4>689</h4>
-              <a href="#">View more</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-xl-4">
+        <div class="card mb-3 widget-content bg-arielle-smile">
+          <div class="widget-content-wrapper text-white">
+            <div class="widget-content-left">
+              <div class="widget-heading">Clients</div>
+              <div class="widget-subheading">Total Clients Profit</div>
             </div>
-          </li>
-          <li>
-            <div class="dash-book dash-b-4">
-              <h5>Enquiry</h5>
-              <h4>24</h4>
-              <a href="#">View more</a>
+            <div class="widget-content-right">
+              <div class="widget-numbers text-white"><span>$ 568</span></div>
             </div>
-          </li>
-        </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-xl-4">
+        <div class="card mb-3 widget-content bg-grow-early">
+          <div class="widget-content-wrapper text-white">
+            <div class="widget-content-left">
+              <div class="widget-heading">Followers</div>
+              <div class="widget-subheading">People Interested</div>
+            </div>
+            <div class="widget-content-right">
+              <div class="widget-numbers text-white"><span>46%</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-xl-none d-lg-block col-md-6 col-xl-4">
+        <div class="card mb-3 widget-content bg-premium-dark">
+          <div class="widget-content-wrapper text-white">
+            <div class="widget-content-left">
+              <div class="widget-heading">Products Sold</div>
+              <div class="widget-subheading">Revenue streams</div>
+            </div>
+            <div class="widget-content-right">
+              <div class="widget-numbers text-warning"><span>$14M</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
-    <!--== User Details ==-->
-    <div class="sb2-2-3">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="box-inn-sp">
-            <div class="inn-title">
-              <h4>Student Details</h4>
-              <p>
-                All about students like name, student id, phone, email, country,
-                city and more
-              </p>
+    <div class="row">
+      <div class="col-md-12 col-lg-6">
+        <div class="mb-3 card">
+          <div class="card-header-tab card-header-tab-animation card-header">
+            <div class="card-header-title">
+              <i class="header-icon lnr-apartment icon-gradient bg-love-kiss">
+              </i>
+              Sales Report
             </div>
-            <div class="tab-inn">
-              <div class="table-responsive table-desi">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th>User</th>
-                      <th>Name</th>
-                      <th>Phone</th>
-                      <th>Email</th>
-                      <th>Country</th>
-                      <th>Id</th>
-                      <th>Date of birth</th>
-                      <th>Status</th>
-                      <th>View</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/user/1.png" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <a href="#"
-                          ><span class="list-enq-name">Marsha Hogan</span
-                          ><span class="list-enq-city"
-                            >Illunois, United States</span
-                          ></a
-                        >
-                      </td>
-                      <td>+01 3214 6522</td>
-                      <td>chadengle@dummy.com</td>
-                      <td>united states</td>
-                      <td>ST17241</td>
-                      <td>03 Jun 1990</td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html" class="ad-st-view"
-                          >View</a
-                        >
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/user/2.png" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <a href="#"
-                          ><span class="list-enq-name">Lucas Caden</span
-                          ><span class="list-enq-city"
-                            >Illunois, United States</span
-                          ></a
-                        >
-                      </td>
-                      <td>+01 8574 6854</td>
-                      <td>lucas@gmail.com</td>
-                      <td>Illinois</td>
-                      <td>ST10231</td>
-                      <td>16 Feb 1987</td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html" class="ad-st-view"
-                          >View</a
-                        >
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/user/4.png" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <a href="#"
-                          ><span class="list-enq-name">Ethan Oliver</span
-                          ><span class="list-enq-city"
-                            >Illunois, United States</span
-                          ></a
-                        >
-                      </td>
-                      <td>+01 8574 6854</td>
-                      <td>Ethan@gmail.com</td>
-                      <td>Illinois</td>
-                      <td>ST32168</td>
-                      <td>21 Jun 1992</td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html" class="ad-st-view"
-                          >View</a
-                        >
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/user/5.png" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <a href="#"
-                          ><span class="list-enq-name">Ethan Oliver</span
-                          ><span class="list-enq-city"
-                            >Illunois, United States</span
-                          ></a
-                        >
-                      </td>
-                      <td>+01 8574 6854</td>
-                      <td>Ethan@gmail.com</td>
-                      <td>Illinois</td>
-                      <td>ST32168</td>
-                      <td>21 Jun 1992</td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html" class="ad-st-view"
-                          >View</a
-                        >
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/user/1.png" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <a href="#"
-                          ><span class="list-enq-name">Marsha Hogan</span
-                          ><span class="list-enq-city"
-                            >Illunois, United States</span
-                          ></a
-                        >
-                      </td>
-                      <td>+01 3214 6522</td>
-                      <td>chadengle@dummy.com</td>
-                      <td>united states</td>
-                      <td>ST17241</td>
-                      <td>03 Jun 1990</td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html" class="ad-st-view"
-                          >View</a
-                        >
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/user/2.png" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <a href="#"
-                          ><span class="list-enq-name">Lucas Caden</span
-                          ><span class="list-enq-city"
-                            >Illunois, United States</span
-                          ></a
-                        >
-                      </td>
-                      <td>+01 8574 6854</td>
-                      <td>lucas@gmail.com</td>
-                      <td>Illinois</td>
-                      <td>ST10231</td>
-                      <td>16 Feb 1987</td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html" class="ad-st-view"
-                          >View</a
-                        >
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/user/4.png" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <a href="#"
-                          ><span class="list-enq-name">Ethan Oliver</span
-                          ><span class="list-enq-city"
-                            >Illunois, United States</span
-                          ></a
-                        >
-                      </td>
-                      <td>+01 8574 6854</td>
-                      <td>Ethan@gmail.com</td>
-                      <td>Illinois</td>
-                      <td>ST32168</td>
-                      <td>21 Jun 1992</td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html" class="ad-st-view"
-                          >View</a
-                        >
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/user/5.png" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <a href="#"
-                          ><span class="list-enq-name">Ethan Oliver</span
-                          ><span class="list-enq-city"
-                            >Illunois, United States</span
-                          ></a
-                        >
-                      </td>
-                      <td>+01 8574 6854</td>
-                      <td>Ethan@gmail.com</td>
-                      <td>Illinois</td>
-                      <td>ST32168</td>
-                      <td>21 Jun 1992</td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html" class="ad-st-view"
-                          >View</a
-                        >
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+            <ul class="nav">
+              <li class="nav-item">
+                <a href="javascript:void(0);" class="active nav-link">Last</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  href="javascript:void(0);"
+                  class="nav-link second-tab-toggle"
+                  >Current</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <div class="tab-content">
+              <div class="tab-pane fade show active" id="tabs-eg-77">
+                <div
+                  class="card mb-3 widget-chart widget-chart2 text-left w-100"
+                >
+                  <div class="widget-chat-wrapper-outer">
+                    <div
+                      class="widget-chart-wrapper widget-chart-wrapper-lg opacity-10 m-0"
+                    >
+                      <canvas id="canvas"></canvas>
+                    </div>
+                  </div>
+                </div>
+                <h6
+                  class="text-muted text-uppercase font-size-md opacity-5 font-weight-normal"
+                >
+                  Top Authors
+                </h6>
+                <div class="scroll-area-sm">
+                  <div class="scrollbar-container">
+                    <ul
+                      class="rm-list-borders rm-list-borders-scroll list-group list-group-flush"
+                    >
+                      <li class="list-group-item">
+                        <div class="widget-content p-0">
+                          <div class="widget-content-wrapper">
+                            <div class="widget-content-left mr-3">
+                              <img
+                                width="42"
+                                class="rounded-circle"
+                                src="assets/images/avatars/9.jpg"
+                                alt=""
+                              />
+                            </div>
+                            <div class="widget-content-left">
+                              <div class="widget-heading">
+                                Ella-Rose Henry
+                              </div>
+                              <div class="widget-subheading">
+                                Web Developer
+                              </div>
+                            </div>
+                            <div class="widget-content-right">
+                              <div class="font-size-xlg text-muted">
+                                <small class="opacity-5 pr-1">$</small>
+                                <span>129</span>
+                                <small class="text-danger pl-2">
+                                  <i class="fa fa-angle-down"></i>
+                                </small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="widget-content p-0">
+                          <div class="widget-content-wrapper">
+                            <div class="widget-content-left mr-3">
+                              <img
+                                width="42"
+                                class="rounded-circle"
+                                src="assets/images/avatars/5.jpg"
+                                alt=""
+                              />
+                            </div>
+                            <div class="widget-content-left">
+                              <div class="widget-heading">Ruben Tillman</div>
+                              <div class="widget-subheading">UI Designer</div>
+                            </div>
+                            <div class="widget-content-right">
+                              <div class="font-size-xlg text-muted">
+                                <small class="opacity-5 pr-1">$</small>
+                                <span>54</span>
+                                <small class="text-success pl-2">
+                                  <i class="fa fa-angle-up"></i>
+                                </small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="widget-content p-0">
+                          <div class="widget-content-wrapper">
+                            <div class="widget-content-left mr-3">
+                              <img
+                                width="42"
+                                class="rounded-circle"
+                                src="assets/images/avatars/4.jpg"
+                                alt=""
+                              />
+                            </div>
+                            <div class="widget-content-left">
+                              <div class="widget-heading">
+                                Vinnie Wagstaff
+                              </div>
+                              <div class="widget-subheading">
+                                Java Programmer
+                              </div>
+                            </div>
+                            <div class="widget-content-right">
+                              <div class="font-size-xlg text-muted">
+                                <small class="opacity-5 pr-1">$</small>
+                                <span>429</span>
+                                <small class="text-warning pl-2">
+                                  <i class="fa fa-dot-circle"></i>
+                                </small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="widget-content p-0">
+                          <div class="widget-content-wrapper">
+                            <div class="widget-content-left mr-3">
+                              <img
+                                width="42"
+                                class="rounded-circle"
+                                src="assets/images/avatars/3.jpg"
+                                alt=""
+                              />
+                            </div>
+                            <div class="widget-content-left">
+                              <div class="widget-heading">
+                                Ella-Rose Henry
+                              </div>
+                              <div class="widget-subheading">
+                                Web Developer
+                              </div>
+                            </div>
+                            <div class="widget-content-right">
+                              <div class="font-size-xlg text-muted">
+                                <small class="opacity-5 pr-1">$</small>
+                                <span>129</span>
+                                <small class="text-danger pl-2">
+                                  <i class="fa fa-angle-down"></i>
+                                </small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="widget-content p-0">
+                          <div class="widget-content-wrapper">
+                            <div class="widget-content-left mr-3">
+                              <img
+                                width="42"
+                                class="rounded-circle"
+                                src="assets/images/avatars/2.jpg"
+                                alt=""
+                              />
+                            </div>
+                            <div class="widget-content-left">
+                              <div class="widget-heading">Ruben Tillman</div>
+                              <div class="widget-subheading">UI Designer</div>
+                            </div>
+                            <div class="widget-content-right">
+                              <div class="font-size-xlg text-muted">
+                                <small class="opacity-5 pr-1">$</small>
+                                <span>54</span>
+                                <small class="text-success pl-2">
+                                  <i class="fa fa-angle-up"></i>
+                                </small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-6">
+        <div class="mb-3 card">
+          <div class="card-header-tab card-header">
+            <div class="card-header-title">
+              <i
+                class="header-icon lnr-rocket icon-gradient bg-tempting-azure"
+              >
+              </i>
+              Bandwidth Reports
+            </div>
+            <div class="btn-actions-pane-right">
+              <div class="nav">
+                <a
+                  href="javascript:void(0);"
+                  class="border-0 btn-pill btn-wide btn-transition active btn btn-outline-alternate"
+                  >Tab 1</a
+                >
+                <a
+                  href="javascript:void(0);"
+                  class="ml-1 btn-pill btn-wide border-0 btn-transition  btn btn-outline-alternate second-tab-toggle-alt"
+                  >Tab 2</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="tab-content">
+            <div class="tab-pane fade active show" id="tab-eg-55">
+              <div class="widget-chart p-3">
+                <div style="height: 350px">
+                  <canvas id="line-chart"></canvas>
+                </div>
+                <div class="widget-chart-content text-center mt-5">
+                  <div class="widget-description mt-0 text-warning">
+                    <i class="fa fa-arrow-left"></i>
+                    <span class="pl-1">175.5%</span>
+                    <span class="text-muted opacity-8 pl-1"
+                      >increased server resources</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="pt-2 card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="widget-content">
+                      <div class="widget-content-outer">
+                        <div class="widget-content-wrapper">
+                          <div class="widget-content-left">
+                            <div class="widget-numbers fsize-3 text-muted">
+                              63%
+                            </div>
+                          </div>
+                          <div class="widget-content-right">
+                            <div class="text-muted opacity-6">
+                              Generated Leads
+                            </div>
+                          </div>
+                        </div>
+                        <div class="widget-progress-wrapper mt-1">
+                          <div
+                            class="progress-bar-sm progress-bar-animated-alt progress"
+                          >
+                            <div
+                              class="progress-bar bg-danger"
+                              role="progressbar"
+                              aria-valuenow="63"
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                              style="width: 63%;"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="widget-content">
+                      <div class="widget-content-outer">
+                        <div class="widget-content-wrapper">
+                          <div class="widget-content-left">
+                            <div class="widget-numbers fsize-3 text-muted">
+                              32%
+                            </div>
+                          </div>
+                          <div class="widget-content-right">
+                            <div class="text-muted opacity-6">
+                              Submitted Tickers
+                            </div>
+                          </div>
+                        </div>
+                        <div class="widget-progress-wrapper mt-1">
+                          <div
+                            class="progress-bar-sm progress-bar-animated-alt progress"
+                          >
+                            <div
+                              class="progress-bar bg-success"
+                              role="progressbar"
+                              aria-valuenow="32"
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                              style="width: 32%;"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="widget-content">
+                      <div class="widget-content-outer">
+                        <div class="widget-content-wrapper">
+                          <div class="widget-content-left">
+                            <div class="widget-numbers fsize-3 text-muted">
+                              71%
+                            </div>
+                          </div>
+                          <div class="widget-content-right">
+                            <div class="text-muted opacity-6">
+                              Server Allocation
+                            </div>
+                          </div>
+                        </div>
+                        <div class="widget-progress-wrapper mt-1">
+                          <div
+                            class="progress-bar-sm progress-bar-animated-alt progress"
+                          >
+                            <div
+                              class="progress-bar bg-primary"
+                              role="progressbar"
+                              aria-valuenow="71"
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                              style="width: 71%;"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="widget-content">
+                      <div class="widget-content-outer">
+                        <div class="widget-content-wrapper">
+                          <div class="widget-content-left">
+                            <div class="widget-numbers fsize-3 text-muted">
+                              41%
+                            </div>
+                          </div>
+                          <div class="widget-content-right">
+                            <div class="text-muted opacity-6">
+                              Generated Leads
+                            </div>
+                          </div>
+                        </div>
+                        <div class="widget-progress-wrapper mt-1">
+                          <div
+                            class="progress-bar-sm progress-bar-animated-alt progress"
+                          >
+                            <div
+                              class="progress-bar bg-warning"
+                              role="progressbar"
+                              aria-valuenow="41"
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                              style="width: 41%;"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!--== User Details ==-->
-    <div class="sb2-2-3">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="box-inn-sp">
-            <div class="inn-title">
-              <h4>Course Details</h4>
-              <p>
-                All about courses, program structure, fees, best course lists
-                (ranking), syllabus, teaching techniques and other details.
-              </p>
+    <div class="row">
+      <div class="col-md-6 col-xl-4">
+        <div class="card mb-3 widget-content">
+          <div class="widget-content-outer">
+            <div class="widget-content-wrapper">
+              <div class="widget-content-left">
+                <div class="widget-heading">Total Orders</div>
+                <div class="widget-subheading">Last year expenses</div>
+              </div>
+              <div class="widget-content-right">
+                <div class="widget-numbers text-success">1896</div>
+              </div>
             </div>
-            <div class="tab-inn">
-              <div class="table-responsive table-desi">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th>Image</th>
-                      <th>Course Name</th>
-                      <th>Category</th>
-                      <th>Durations</th>
-                      <th>Start Date</th>
-                      <th>End Date</th>
-                      <th>Total Seats</th>
-                      <th>Status</th>
-                      <th>View</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/course/sm-1.jpg" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html"
-                          ><span class="list-enq-name"
-                            >Aerospace Engineering</span
-                          ><span class="list-enq-city"
-                            >Illunois, United States</span
-                          ></a
-                        >
-                      </td>
-                      <td>Engineering</td>
-                      <td>60 Days(420hrs)</td>
-                      <td>03 Jun 2018</td>
-                      <td>12 Aug 2018</td>
-                      <td>74</td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html" class="ad-st-view"
-                          >View</a
-                        >
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/course/sm-5.jpg" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html"
-                          ><span class="list-enq-name">Fashion Technology</span
-                          ><span class="list-enq-city"
-                            >Illunois, United States</span
-                          ></a
-                        >
-                      </td>
-                      <td>Fashion</td>
-                      <td>30 Days(420hrs)</td>
-                      <td>01 Nov 2018</td>
-                      <td>01 Dec 2018</td>
-                      <td>30</td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html" class="ad-st-view"
-                          >View</a
-                        >
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/course/sm-2.jpg" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html"
-                          ><span class="list-enq-name">Agriculture Courses</span
-                          ><span class="list-enq-city"
-                            >Illunois, United States</span
-                          ></a
-                        >
-                      </td>
-                      <td>Agriculture</td>
-                      <td>25 Days(420hrs)</td>
-                      <td>05 Jan 2018</td>
-                      <td>25 Jan 2018</td>
-                      <td>25</td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html" class="ad-st-view"
-                          >View</a
-                        >
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/course/sm-3.jpg" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html"
-                          ><span class="list-enq-name">Marine Engineering</span
-                          ><span class="list-enq-city"
-                            >Illunois, United States</span
-                          ></a
-                        >
-                      </td>
-                      <td>Ocean / Marine</td>
-                      <td>06 Months</td>
-                      <td>12 Feb 2018</td>
-                      <td>14 Aug 2018</td>
-                      <td>68</td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html" class="ad-st-view"
-                          >View</a
-                        >
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/course/sm-4.jpg" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html"
-                          ><span class="list-enq-name"
-                            >Building, Construction Management</span
-                          ><span class="list-enq-city"
-                            >Illunois, United States</span
-                          ></a
-                        >
-                      </td>
-                      <td>Construction</td>
-                      <td>1 Year</td>
-                      <td>05 Mar 2018</td>
-                      <td>16 Mar 2018</td>
-                      <td>72</td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html" class="ad-st-view"
-                          >View</a
-                        >
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/course/sm-1.jpg" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html"
-                          ><span class="list-enq-name"
-                            >Aerospace Engineering</span
-                          ><span class="list-enq-city"
-                            >Illunois, United States</span
-                          ></a
-                        >
-                      </td>
-                      <td>Engineering</td>
-                      <td>60 Days(420hrs)</td>
-                      <td>03 Jun 2018</td>
-                      <td>12 Aug 2018</td>
-                      <td>74</td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html" class="ad-st-view"
-                          >View</a
-                        >
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/course/sm-5.jpg" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html"
-                          ><span class="list-enq-name">Fashion Technology</span
-                          ><span class="list-enq-city"
-                            >Illunois, United States</span
-                          ></a
-                        >
-                      </td>
-                      <td>Fashion</td>
-                      <td>30 Days(420hrs)</td>
-                      <td>01 Nov 2018</td>
-                      <td>01 Dec 2018</td>
-                      <td>30</td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html" class="ad-st-view"
-                          >View</a
-                        >
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/course/sm-2.jpg" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html"
-                          ><span class="list-enq-name">Agriculture Courses</span
-                          ><span class="list-enq-city"
-                            >Illunois, United States</span
-                          ></a
-                        >
-                      </td>
-                      <td>Agriculture</td>
-                      <td>25 Days(420hrs)</td>
-                      <td>05 Jan 2018</td>
-                      <td>25 Jan 2018</td>
-                      <td>25</td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html" class="ad-st-view"
-                          >View</a
-                        >
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/course/sm-3.jpg" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html"
-                          ><span class="list-enq-name">Marine Engineering</span
-                          ><span class="list-enq-city"
-                            >Illunois, United States</span
-                          ></a
-                        >
-                      </td>
-                      <td>Ocean / Marine</td>
-                      <td>06 Months</td>
-                      <td>12 Feb 2018</td>
-                      <td>14 Aug 2018</td>
-                      <td>68</td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html" class="ad-st-view"
-                          >View</a
-                        >
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/course/sm-4.jpg" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html"
-                          ><span class="list-enq-name"
-                            >Building, Construction Management</span
-                          ><span class="list-enq-city"
-                            >Illunois, United States</span
-                          ></a
-                        >
-                      </td>
-                      <td>Construction</td>
-                      <td>1 Year</td>
-                      <td>05 Mar 2018</td>
-                      <td>16 Mar 2018</td>
-                      <td>72</td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html" class="ad-st-view"
-                          >View</a
-                        >
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-xl-4">
+        <div class="card mb-3 widget-content">
+          <div class="widget-content-outer">
+            <div class="widget-content-wrapper">
+              <div class="widget-content-left">
+                <div class="widget-heading">Products Sold</div>
+                <div class="widget-subheading">Revenue streams</div>
+              </div>
+              <div class="widget-content-right">
+                <div class="widget-numbers text-warning">$3M</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-xl-4">
+        <div class="card mb-3 widget-content">
+          <div class="widget-content-outer">
+            <div class="widget-content-wrapper">
+              <div class="widget-content-left">
+                <div class="widget-heading">Followers</div>
+                <div class="widget-subheading">People Interested</div>
+              </div>
+              <div class="widget-content-right">
+                <div class="widget-numbers text-danger">45,9%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-xl-none d-lg-block col-md-6 col-xl-4">
+        <div class="card mb-3 widget-content">
+          <div class="widget-content-outer">
+            <div class="widget-content-wrapper">
+              <div class="widget-content-left">
+                <div class="widget-heading">Income</div>
+                <div class="widget-subheading">Expected totals</div>
+              </div>
+              <div class="widget-content-right">
+                <div class="widget-numbers text-focus">$147</div>
+              </div>
+            </div>
+            <div class="widget-progress-wrapper">
+              <div class="progress-bar-sm progress-bar-animated-alt progress">
+                <div
+                  class="progress-bar bg-info"
+                  role="progressbar"
+                  aria-valuenow="54"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  style="width: 54%;"
+                ></div>
+              </div>
+              <div class="progress-sub-label">
+                <div class="sub-label-left">Expenses</div>
+                <div class="sub-label-right">100%</div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="sb2-2-3">
-      <div class="row">
-        <!--== Country Campaigns ==-->
-        <div class="col-md-6">
-          <div class="box-inn-sp">
-            <div class="inn-title">
-              <h4>Job Openings</h4>
-              <p>
-                Randomised words which don't look even slightly believable. If
-                you are going to use a passage
-              </p>
-            </div>
-            <div class="tab-inn">
-              <div class="table-responsive table-desi">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th>Company</th>
-                      <th>Openings</th>
-                      <th>Date</th>
-                      <th>Location</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><span class="txt-dark weight-500">Samsing</span></td>
-                      <td>50</td>
-                      <td>15 April 2018</td>
-                      <td>New york, United States</td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="txt-dark weight-500">Microsofts</span>
-                      </td>
-                      <td>75</td>
-                      <td>21 Jun 2018</td>
-                      <td>New york, United States</td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><span class="txt-dark weight-500">Samsing</span></td>
-                      <td>50</td>
-                      <td>15 April 2018</td>
-                      <td>United States</td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="txt-dark weight-500">Microsofts</span>
-                      </td>
-                      <td>75</td>
-                      <td>21 Jun 2018</td>
-                      <td>United States</td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="main-card mb-3 card">
+          <div class="card-header">
+            Active Users
+            <div class="btn-actions-pane-right">
+              <div role="group" class="btn-group-sm btn-group">
+                <button class="active btn btn-focus">Last Week</button>
+                <button class="btn btn-focus">All Month</button>
               </div>
             </div>
           </div>
+          <div class="table-responsive">
+            <table
+              class="align-middle mb-0 table table-borderless table-striped table-hover"
+            >
+              <thead>
+                <tr>
+                  <th class="text-center">#</th>
+                  <th>Name</th>
+                  <th class="text-center">City</th>
+                  <th class="text-center">Status</th>
+                  <th class="text-center">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center text-muted">#345</td>
+                  <td>
+                    <div class="widget-content p-0">
+                      <div class="widget-content-wrapper">
+                        <div class="widget-content-left mr-3">
+                          <div class="widget-content-left">
+                            <img
+                              width="40"
+                              class="rounded-circle"
+                              src="assets/images/avatars/4.jpg"
+                              alt=""
+                            />
+                          </div>
+                        </div>
+                        <div class="widget-content-left flex2">
+                          <div class="widget-heading">John Doe</div>
+                          <div class="widget-subheading opacity-7">
+                            Web Developer
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="text-center">Madrid</td>
+                  <td class="text-center">
+                    <div class="badge badge-warning">Pending</div>
+                  </td>
+                  <td class="text-center">
+                    <button
+                      type="button"
+                      id="PopoverCustomT-1"
+                      class="btn btn-primary btn-sm"
+                    >
+                      Details
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-center text-muted">#347</td>
+                  <td>
+                    <div class="widget-content p-0">
+                      <div class="widget-content-wrapper">
+                        <div class="widget-content-left mr-3">
+                          <div class="widget-content-left">
+                            <img
+                              width="40"
+                              class="rounded-circle"
+                              src="assets/images/avatars/3.jpg"
+                              alt=""
+                            />
+                          </div>
+                        </div>
+                        <div class="widget-content-left flex2">
+                          <div class="widget-heading">Ruben Tillman</div>
+                          <div class="widget-subheading opacity-7">
+                            Etiam sit amet orci eget
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="text-center">Berlin</td>
+                  <td class="text-center">
+                    <div class="badge badge-success">Completed</div>
+                  </td>
+                  <td class="text-center">
+                    <button
+                      type="button"
+                      id="PopoverCustomT-2"
+                      class="btn btn-primary btn-sm"
+                    >
+                      Details
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-center text-muted">#321</td>
+                  <td>
+                    <div class="widget-content p-0">
+                      <div class="widget-content-wrapper">
+                        <div class="widget-content-left mr-3">
+                          <div class="widget-content-left">
+                            <img
+                              width="40"
+                              class="rounded-circle"
+                              src="assets/images/avatars/2.jpg"
+                              alt=""
+                            />
+                          </div>
+                        </div>
+                        <div class="widget-content-left flex2">
+                          <div class="widget-heading">Elliot Huber</div>
+                          <div class="widget-subheading opacity-7">
+                            Lorem ipsum dolor sic
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="text-center">London</td>
+                  <td class="text-center">
+                    <div class="badge badge-danger">In Progress</div>
+                  </td>
+                  <td class="text-center">
+                    <button
+                      type="button"
+                      id="PopoverCustomT-3"
+                      class="btn btn-primary btn-sm"
+                    >
+                      Details
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-center text-muted">#55</td>
+                  <td>
+                    <div class="widget-content p-0">
+                      <div class="widget-content-wrapper">
+                        <div class="widget-content-left mr-3">
+                          <div class="widget-content-left">
+                            <img
+                              width="40"
+                              class="rounded-circle"
+                              src="assets/images/avatars/1.jpg"
+                              alt=""
+                            />
+                          </div>
+                        </div>
+                        <div class="widget-content-left flex2">
+                          <div class="widget-heading">Vinnie Wagstaff</div>
+                          <div class="widget-subheading opacity-7">
+                            UI Designer
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="text-center">Amsterdam</td>
+                  <td class="text-center">
+                    <div class="badge badge-info">On Hold</div>
+                  </td>
+                  <td class="text-center">
+                    <button
+                      type="button"
+                      id="PopoverCustomT-4"
+                      class="btn btn-primary btn-sm"
+                    >
+                      Details
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="d-block text-center card-footer">
+            <button
+              class="mr-2 btn-icon btn-icon-only btn btn-outline-danger"
+            >
+              <i class="pe-7s-trash btn-icon-wrapper"> </i>
+            </button>
+            <button class="btn-wide btn btn-success">Save</button>
+          </div>
         </div>
-
-        <!--== Country Campaigns ==-->
-        <div class="col-md-6">
-          <div class="box-inn-sp">
-            <div class="inn-title">
-              <h4>Event Details</h4>
-              <p>Education is about teaching, learning skills and knowledge.</p>
-            </div>
-            <div class="tab-inn">
-              <div class="table-responsive table-desi">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th>State</th>
-                      <th>Client</th>
-                      <th>Changes</th>
-                      <th>Budget</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <span class="txt-dark weight-500">California</span>
-                      </td>
-                      <td>Beavis</td>
-                      <td>
-                        <span class="txt-success"
-                          ><i class="fa fa-angle-up" aria-hidden="true"></i
-                          ><span>2.43%</span></span
-                        >
-                      </td>
-                      <td>
-                        <span class="txt-dark weight-500">$1478</span>
-                      </td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><span class="txt-dark weight-500">Florida</span></td>
-                      <td>Felix</td>
-                      <td>
-                        <span class="txt-success"
-                          ><i class="fa fa-angle-up" aria-hidden="true"></i
-                          ><span>1.43%</span></span
-                        >
-                      </td>
-                      <td>
-                        <span class="txt-dark weight-500">$951</span>
-                      </td>
-                      <td>
-                        <span class="label label-danger">Closed</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><span class="txt-dark weight-500">Hawaii</span></td>
-                      <td>Cannibus</td>
-                      <td>
-                        <span class="txt-danger"
-                          ><i class="fa fa-angle-up" aria-hidden="true"></i
-                          ><span>-8.43%</span></span
-                        >
-                      </td>
-                      <td>
-                        <span class="txt-dark weight-500">$632</span>
-                      </td>
-                      <td>
-                        <span class="label label-default">Hold</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><span class="txt-dark weight-500">Alaska</span></td>
-                      <td>Neosoft</td>
-                      <td>
-                        <span class="txt-success"
-                          ><i class="fa fa-angle-up" aria-hidden="true"></i
-                          ><span>7.43%</span></span
-                        >
-                      </td>
-                      <td>
-                        <span class="txt-dark weight-500">$325</span>
-                      </td>
-                      <td>
-                        <span class="label label-default">Hold</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="txt-dark weight-500">New Jersey</span>
-                      </td>
-                      <td>Hencework</td>
-                      <td>
-                        <span class="txt-success"
-                          ><i class="fa fa-angle-up" aria-hidden="true"></i
-                          ><span>9.43%</span></span
-                        >
-                      </td>
-                      <td>
-                        <span>$258</span>
-                      </td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-lg-3">
+        <div
+          class="card-shadow-danger mb-3 widget-chart widget-chart2 text-left card"
+        >
+          <div class="widget-content">
+            <div class="widget-content-outer">
+              <div class="widget-content-wrapper">
+                <div class="widget-content-left pr-2 fsize-1">
+                  <div class="widget-numbers mt-0 fsize-3 text-danger">
+                    71%
+                  </div>
+                </div>
+                <div class="widget-content-right w-100">
+                  <div class="progress-bar-xs progress">
+                    <div
+                      class="progress-bar bg-danger"
+                      role="progressbar"
+                      aria-valuenow="71"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      style="width: 71%;"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <div class="widget-content-left fsize-1">
+                <div class="text-muted opacity-6">Income Target</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="sb2-2-3">
-      <div class="row">
-        <!--== Listing Enquiry ==-->
-        <div class="col-md-12">
-          <div class="box-inn-sp">
-            <div class="inn-title">
-              <h4>Exam Time Tables</h4>
-              <p>Education is about teaching, learning skills and knowledge.</p>
-            </div>
-            <div class="tab-inn">
-              <div class="table-responsive table-desi">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th>Select</th>
-                      <th>Degree</th>
-                      <th>Exam Name</th>
-                      <th>Start Date</th>
-                      <th>End Date</th>
-                      <th>Timing</th>
-                      <th>View</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <input
-                          type="checkbox"
-                          class="filled-in"
-                          id="filled-in-box-1"
-                          checked="checked"
-                        />
-                        <label for="filled-in-box-1"></label>
-                      </td>
-                      <td>MBA</td>
-                      <td>
-                        <span class="list-enq-name">Civil engineering</span
-                        ><span class="list-enq-city"
-                          >Illunois, United States</span
-                        >
-                      </td>
-                      <td>10:00am</td>
-                      <td>01:00pm</td>
-                      <td>03:00Hrs</td>
-                      <td>
-                        <a href="admin-exam.html" class="ad-st-view">View</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input
-                          type="checkbox"
-                          class="filled-in"
-                          id="filled-in-box-2"
-                        />
-                        <label for="filled-in-box-2"></label>
-                      </td>
-                      <td>MBA</td>
-                      <td>
-                        <span class="list-enq-name">Google Business</span
-                        ><span class="list-enq-city"
-                          >Illunois, United States</span
-                        >
-                      </td>
-                      <td>10:00am</td>
-                      <td>01:00pm</td>
-                      <td>03:00Hrs</td>
-                      <td>
-                        <a href="admin-exam.html" class="ad-st-view">View</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input
-                          type="checkbox"
-                          class="filled-in"
-                          id="filled-in-box-3"
-                        />
-                        <label for="filled-in-box-3"></label>
-                      </td>
-                      <td>MBA</td>
-                      <td>
-                        <span class="list-enq-name">Statistics</span
-                        ><span class="list-enq-city"
-                          >Illunois, United States</span
-                        >
-                      </td>
-                      <td>10:00am</td>
-                      <td>01:00pm</td>
-                      <td>03:00Hrs</td>
-                      <td>
-                        <a href="admin-exam.html" class="ad-st-view">View</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input
-                          type="checkbox"
-                          class="filled-in"
-                          id="filled-in-box-4"
-                        />
-                        <label for="filled-in-box-4"></label>
-                      </td>
-                      <td>MBA</td>
-                      <td>
-                        <span class="list-enq-name">Business Management</span
-                        ><span class="list-enq-city"
-                          >Illunois, United States</span
-                        >
-                      </td>
-                      <td>10:00am</td>
-                      <td>01:00pm</td>
-                      <td>03:00Hrs</td>
-                      <td>
-                        <a href="admin-exam.html" class="ad-st-view">View</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input
-                          type="checkbox"
-                          class="filled-in"
-                          id="filled-in-box-5"
-                        />
-                        <label for="filled-in-box-5"></label>
-                      </td>
-                      <td>MBA</td>
-                      <td>
-                        <span class="list-enq-name">Art/Design</span
-                        ><span class="list-enq-city"
-                          >Illunois, United States</span
-                        >
-                      </td>
-                      <td>10:00am</td>
-                      <td>01:00pm</td>
-                      <td>03:00Hrs</td>
-                      <td>
-                        <a href="admin-exam.html" class="ad-st-view">View</a>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+      <div class="col-md-6 col-lg-3">
+        <div
+          class="card-shadow-success mb-3 widget-chart widget-chart2 text-left card"
+        >
+          <div class="widget-content">
+            <div class="widget-content-outer">
+              <div class="widget-content-wrapper">
+                <div class="widget-content-left pr-2 fsize-1">
+                  <div class="widget-numbers mt-0 fsize-3 text-success">
+                    54%
+                  </div>
+                </div>
+                <div class="widget-content-right w-100">
+                  <div class="progress-bar-xs progress">
+                    <div
+                      class="progress-bar bg-success"
+                      role="progressbar"
+                      aria-valuenow="54"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      style="width: 54%;"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <div class="widget-content-left fsize-1">
+                <div class="text-muted opacity-6">Expenses Target</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <!--== Latest Activity ==-->
-    <div class="sb2-2-3">
-      <div class="row">
-        <!--== Latest Activity ==-->
-        <div class="col-md-6">
-          <div class="box-inn-sp">
-            <div class="inn-title">
-              <h4>Latest Activity</h4>
-              <p>Education is about teaching, learning skills and knowledge.</p>
-            </div>
-            <div class="tab-inn list-act-hom">
-              <ul>
-                <li class="list-act-hom-con">
-                  <i class="fa fa-clock-o" aria-hidden="true"></i>
-                  <h4><span>12 may, 2017</span> Welcome to Academy</h4>
-                  <p>
-                    There are many variations of passages of Lorem Ipsum
-                    available, but the majority have suffered alteration in some
-                    form, by injected humour.
-                  </p>
-                </li>
-                <li class="list-act-hom-con">
-                  <i class="fa fa-clock-o" aria-hidden="true"></i>
-                  <h4><span>08 Jun, 2017</span> Academy Leadership</h4>
-                  <p>
-                    There are many variations of passages of Lorem Ipsum
-                    available, but the majority have suffered alteration in some
-                    form, by injected humour.
-                  </p>
-                </li>
-                <li class="list-act-hom-con">
-                  <i class="fa fa-clock-o" aria-hidden="true"></i>
-                  <h4><span>27 July, 2017</span> Awards and Achievement</h4>
-                  <p>
-                    There are many variations of passages of Lorem Ipsum
-                    available, but the majority have suffered alteration in some
-                    form, by injected humour.
-                  </p>
-                </li>
-                <li class="list-act-hom-con">
-                  <i class="fa fa-clock-o" aria-hidden="true"></i>
-                  <h4><span>14 Aug, 2017</span> Facilities and Management</h4>
-                  <p>
-                    There are many variations of passages of Lorem Ipsum
-                    available, but the majority have suffered alteration in some
-                    form, by injected humour.
-                  </p>
-                </li>
-                <li class="list-act-hom-con">
-                  <i class="fa fa-clock-o" aria-hidden="true"></i>
-                  <h4><span>24 Sep, 2017</span> Nation award winning 2017</h4>
-                  <p>
-                    There are many variations of passages of Lorem Ipsum
-                    available, but the majority have suffered alteration in some
-                    form, by injected humour.
-                  </p>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!--== Social Media ==-->
-        <div class="col-md-6">
-          <div class="box-inn-sp">
-            <div class="inn-title">
-              <h4>Social Media</h4>
-              <p>Education is about teaching, learning skills and knowledge.</p>
-            </div>
-            <div class="tab-inn">
-              <div class="table-responsive table-desi">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th>Media</th>
-                      <th>Name</th>
-                      <th>Share</th>
-                      <th>Like</th>
-                      <th>Members</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/sm/1.png" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <span class="list-enq-name">Linked In</span
-                        ><span class="list-enq-city"
-                          >Illunois, United States</span
-                        >
-                      </td>
-                      <td>15K</td>
-                      <td>18K</td>
-                      <td>
-                        <span class="label label-success">263</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/sm/2.png" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <span class="list-enq-name">Twitter</span
-                        ><span class="list-enq-city"
-                          >Illunois, United States</span
-                        >
-                      </td>
-                      <td>15K</td>
-                      <td>18K</td>
-                      <td>
-                        <span class="label label-success">263</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/sm/3.png" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <span class="list-enq-name">Facebook</span
-                        ><span class="list-enq-city"
-                          >Illunois, United States</span
-                        >
-                      </td>
-                      <td>15K</td>
-                      <td>18K</td>
-                      <td>
-                        <span class="label label-success">263</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/sm/4.png" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <span class="list-enq-name">Google Plus</span
-                        ><span class="list-enq-city"
-                          >Illunois, United States</span
-                        >
-                      </td>
-                      <td>15K</td>
-                      <td>18K</td>
-                      <td>
-                        <span class="label label-success">263</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/sm/5.png" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <span class="list-enq-name">YouTube</span
-                        ><span class="list-enq-city"
-                          >Illunois, United States</span
-                        >
-                      </td>
-                      <td>15K</td>
-                      <td>18K</td>
-                      <td>
-                        <span class="label label-success">263</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/sm/6.png" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <span class="list-enq-name">WhatsApp</span
-                        ><span class="list-enq-city"
-                          >Illunois, United States</span
-                        >
-                      </td>
-                      <td>15K</td>
-                      <td>18K</td>
-                      <td>
-                        <span class="label label-success">263</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/sm/7.png" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <span class="list-enq-name">VK</span
-                        ><span class="list-enq-city"
-                          >Illunois, United States</span
-                        >
-                      </td>
-                      <td>15K</td>
-                      <td>18K</td>
-                      <td>
-                        <span class="label label-success">263</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <span class="list-img"
-                          ><img src="images/sm/2.png" alt=""
-                        /></span>
-                      </td>
-                      <td>
-                        <span class="list-enq-name">Twitter</span
-                        ><span class="list-enq-city"
-                          >Illunois, United States</span
-                        >
-                      </td>
-                      <td>15K</td>
-                      <td>18K</td>
-                      <td>
-                        <span class="label label-success">263</span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+      <div class="col-md-6 col-lg-3">
+        <div
+          class="card-shadow-warning mb-3 widget-chart widget-chart2 text-left card"
+        >
+          <div class="widget-content">
+            <div class="widget-content-outer">
+              <div class="widget-content-wrapper">
+                <div class="widget-content-left pr-2 fsize-1">
+                  <div class="widget-numbers mt-0 fsize-3 text-warning">
+                    32%
+                  </div>
+                </div>
+                <div class="widget-content-right w-100">
+                  <div class="progress-bar-xs progress">
+                    <div
+                      class="progress-bar bg-warning"
+                      role="progressbar"
+                      aria-valuenow="32"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      style="width: 32%;"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <div class="widget-content-left fsize-1">
+                <div class="text-muted opacity-6">Spendings Target</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <!--== User Details ==-->
-    <div class="sb2-2-3">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="box-inn-sp">
-            <div class="inn-title">
-              <h4>Google Map</h4>
-              <p>Education is about teaching, learning skills and knowledge.</p>
-            </div>
-            <div class="tab-inn">
-              <div class="table-responsive table-desi tab-map">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6290413.804893654!2d-93.99620524741552!3d39.66116578737809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880b2d386f6e2619%3A0x7f15825064115956!2sIllinois%2C+USA!5e0!3m2!1sen!2sin!4v1469954001005"
-                  allowfullscreen
-                ></iframe>
+      <div class="col-md-6 col-lg-3">
+        <div
+          class="card-shadow-info mb-3 widget-chart widget-chart2 text-left card"
+        >
+          <div class="widget-content">
+            <div class="widget-content-outer">
+              <div class="widget-content-wrapper">
+                <div class="widget-content-left pr-2 fsize-1">
+                  <div class="widget-numbers mt-0 fsize-3 text-info">89%</div>
+                </div>
+                <div class="widget-content-right w-100">
+                  <div class="progress-bar-xs progress">
+                    <div
+                      class="progress-bar bg-info"
+                      role="progressbar"
+                      aria-valuenow="89"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      style="width: 89%;"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <div class="widget-content-left fsize-1">
+                <div class="text-muted opacity-6">Totals Target</div>
               </div>
             </div>
           </div>
@@ -1245,7 +861,7 @@ export default {
   data() {
     return {};
   },
-  methods: {}
+  methods: {},
 };
 </script>
 <style scoped></style>

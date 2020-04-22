@@ -1,0 +1,23 @@
+https://www.npmjs.com/package/vue-simple-alert
+
+
+this.$alert("Hello Vue Simple Alert.");
+
+this.$confirm("Are you sure?").then(() => {
+  //do something...
+});
+
+this.$prompt("Input your name").then(text => {
+  // do somthing with text
+});
+
+// in any component
+ 
+this.$fire({
+  title: "Title",
+  text: "text",
+  type: "success",
+  timer: 3000
+}).then(r => {
+  console.log(r.value);
+});

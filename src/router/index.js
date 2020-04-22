@@ -1,9 +1,6 @@
 /* eslint-disable no-undef */
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Login from "../views/Login.vue";
-import Dashboard from "../views/Dashboard.vue";
-import AllAdmin from "../views/AllAdmin.vue";
 
 Vue.use(VueRouter);
 
@@ -11,20 +8,31 @@ const routes = [
   {
     path: "/",
     name: "login",
-    component: Login,
+    component: () => import("../views/Login.vue"),
     alias: "/login"
   },
   {
     path: "/dashboard",
-    name: "dashboard",
-    component: Dashboard,
+    name: "Analytics Dashboard",
+    component: () => import("../views/Dashboard.vue"),
     meta: { requiresAuth: true }
   },
   {
     path: "/all-admin",
-    name: "all Admin",
-    component: AllAdmin,
+    name: "All Admin",
+    component: () => import("../views/AllAdmin.vue"),
     meta: { requiresAuth: true }
+  },
+  {
+    path: "/create-admin",
+    name: "Create Admin",
+    component: () => import("../views/CreateAdmin.vue"),
+    meta: { requiresAuth: true }
+  },
+  {
+    path: "*",
+    name: "404",
+    component: () => import("../views/404.vue")
   }
 ];
 

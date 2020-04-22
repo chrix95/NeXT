@@ -1,21 +1,29 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
-    <TopNav v-if="isUserLoggedIn" />
-    <div class="container-fluid" :class="isUserLoggedIn ? 'sb2' : ''">
-      <div class="row">
-        <SideNav v-if="isUserLoggedIn" />
-        <router-view />
+    <div
+      class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header"
+      v-if="isUserLoggedIn"
+    >
+      <top-nav />
+      <theme-settings />
+      <div class="app-main">
+        <side-nav />
+        <div class="app-main__outer">
+          <router-view />
+          <footer-bottom />
+        </div>
       </div>
+    </div>
+    <div v-else>
+      <router-view />
     </div>
   </div>
 </template>
 <script>
 import TopNav from "@/components/_partials/TopNavbar";
+import ThemeSettings from "@/components/_partials/ThemeSettings";
 import SideNav from "@/components/_partials/SideNavbar";
+import FooterBottom from "@/components/_partials/FooterBottom";
 import { mapState } from "vuex";
 export default {
   computed: mapState(["isUserLoggedIn"]),
@@ -31,8 +39,10 @@ export default {
   },
   components: {
     TopNav,
+    ThemeSettings,
     SideNav,
-  },
+    FooterBottom
+  }
 };
 </script>
 <style></style>

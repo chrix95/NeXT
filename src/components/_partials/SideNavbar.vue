@@ -1,184 +1,248 @@
 <template>
-  <div class="sb2-1">
-    <!--== USER INFO ==-->
-    <div class="sb2-12">
-      <ul>
-        <li><img src="images/placeholder.jpg" alt="" /></li>
-        <li>
-          <h5>
-            {{ user.username }} <span> {{ user.email }}</span>
-          </h5>
-        </li>
-        <li></li>
-      </ul>
+  <div class="app-sidebar sidebar-shadow">
+    <div class="app-header__logo">
+      <router-link to="/">
+        <div class="logo-src"></div>
+      </router-link>
+      <div class="header__pane ml-auto">
+        <div>
+          <button
+            type="button"
+            class="hamburger close-sidebar-btn hamburger--elastic"
+            data-class="closed-sidebar"
+          >
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+            </span>
+          </button>
+        </div>
+      </div>
     </div>
-    <!--== LEFT MENU ==-->
-    <div class="sb2-13">
-      <ul class="collapsible" data-collapsible="accordion">
-        <li>
-          <router-link
-            href="#"
-            to="/dashboard"
-            :class="currentRoute == 'dashboard' ? 'menu-active' : ''"
-            ><i class="fa fa-bar-chart" aria-hidden="true"></i>
-            Dashboard</router-link
-          >
-        </li>
-        <li v-if="userType == 'super'">
-          <router-link
-            href="#"
-            to="/all-admin"
-            :class="currentRoute == 'all Admin' ? 'menu-active' : ''"
-            ><i class="fa fa-cogs" aria-hidden="true"></i> All
-            Admins</router-link
-          >
-        </li>
-        <li>
-          <a href="javascript:void(0)" class="collapsible-header"
-            ><i class="fa fa-book" aria-hidden="true"></i> All Courses</a
-          >
-          <div class="collapsible-body left-sub-menu">
+    <div class="app-header__mobile-menu">
+      <div>
+        <button
+          type="button"
+          class="hamburger hamburger--elastic mobile-toggle-nav"
+        >
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="app-header__menu">
+      <span>
+        <button
+          type="button"
+          class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav"
+        >
+          <span class="btn-icon-wrapper">
+            <i class="fa fa-ellipsis-v fa-w-6"></i>
+          </span>
+        </button>
+      </span>
+    </div>
+    <div class="scrollbar-sidebar">
+      <div class="app-sidebar__inner">
+        <ul class="vertical-nav-menu">
+          <li class="app-sidebar__heading">Dashboard</li>
+          <li>
+            <a
+              href="#/dashboard"
+              :class="$route.path == '/dashboard' ? 'mm-active' : ''"
+            >
+              <i class="metismenu-icon pe-7s-rocket"></i>
+              Dashboard
+            </a>
+          </li>
+          <li class="app-sidebar__heading">Admin Module</li>
+          <li>
+            <a href="#">
+              <i class="metismenu-icon pe-7s-diamond"></i>
+              Admin Module
+              <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+            </a>
             <ul>
-              <li><a href="admin-all-courses.html">All Course</a></li>
-              <li><a href="admin-add-courses.html">Add New Course</a></li>
-              <li><a href="admin-trash-courses.html">Trash Course</a></li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <a href="javascript:void(0)" class="collapsible-header"
-            ><i class="fa fa-user" aria-hidden="true"></i> Users</a
-          >
-          <div class="collapsible-body left-sub-menu">
-            <ul>
-              <li><a href="admin-user-all.html">All Users</a></li>
-              <li><a href="admin-user-add.html">Add New user</a></li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <a href="javascript:void(0)" class="collapsible-header"
-            ><i class="fa fa-bookmark-o" aria-hidden="true"></i>All Pages</a
-          >
-          <div class="collapsible-body left-sub-menu">
-            <ul>
-              <li><a href="admin-page-all.html">Pages</a></li>
-              <li><a href="admin-page-add.html">Create New Page</a></li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <a href="javascript:void(0)" class="collapsible-header"
-            ><i class="fa fa-bars" aria-hidden="true"></i> Menu</a
-          >
-          <div class="collapsible-body left-sub-menu">
-            <ul>
-              <li><a href="admin-main-menu.html">Main menu</a></li>
-              <li><a href="admin-about-menu.html">About menu</a></li>
-              <li><a href="admin-admission-menu.html">Admission menu</a></li>
-              <li><a href="admin-all-menu.html">All page menu</a></li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <a href="admin-slider.html"
-            ><i class="fa fa-image" aria-hidden="true"></i> Slider</a
-          >
-        </li>
-        <li>
-          <a href="admin-quick-link.html"
-            ><i class="fa fa-external-link-square" aria-hidden="true"></i>
-            Slider quick link</a
-          >
-        </li>
-        <li>
-          <a href="javascript:void(0)" class="collapsible-header"
-            ><i class="fa fa-calendar" aria-hidden="true"></i> Events</a
-          >
-          <div class="collapsible-body left-sub-menu">
-            <ul>
-              <li><a href="admin-event-all.html">All Events</a></li>
-              <li><a href="admin-event-add.html">Create New Events</a></li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <a href="javascript:void(0)" class="collapsible-header"
-            ><i class="fa fa-bullhorn" aria-hidden="true"></i> Seminar</a
-          >
-          <div class="collapsible-body left-sub-menu">
-            <ul>
-              <li><a href="admin-seminar-all.html">All Seminar</a></li>
-              <li><a href="admin-seminar-add.html">Create New Seminar</a></li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <a href="javascript:void(0)" class="collapsible-header"
-            ><i class="fa fa-graduation-cap" aria-hidden="true"></i> Job
-            Vacants</a
-          >
-          <div class="collapsible-body left-sub-menu">
-            <ul>
-              <li><a href="admin-job-all.html">All Jobs</a></li>
-              <li><a href="admin-job-add.html">Create New Job</a></li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <a href="javascript:void(0)" class="collapsible-header"
-            ><i class="fa fa-pencil" aria-hidden="true"></i> Exam time table</a
-          >
-          <div class="collapsible-body left-sub-menu">
-            <ul>
-              <li><a href="admin-exam-all.html">All Exams</a></li>
-              <li><a href="admin-exam-add.html">Add New Exam</a></li>
-              <li><a href="admin-exam-group-all.html">All Groups</a></li>
-              <li><a href="admin-exam-group-add.html">Create New Groups</a></li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <a href="javascript:void(0)" class="collapsible-header"
-            ><i class="fa fa-users" aria-hidden="true"></i> Students</a
-          >
-          <div class="collapsible-body left-sub-menu">
-            <ul>
-              <li><a href="admin-user-all.html">All Students</a></li>
-              <li><a href="admin-user-add.html">Add New Students</a></li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <a href="javascript:void(0)" class="collapsible-header"
-            ><i class="fa fa-commenting-o" aria-hidden="true"></i> Enquiry</a
-          >
-          <div class="collapsible-body left-sub-menu">
-            <ul>
-              <li><a href="admin-all-enquiry.html">All Enquiry</a></li>
-              <li><a href="admin-course-enquiry.html">Course Enquiry</a></li>
               <li>
-                <a href="admin-admission-enquiry.html">Admission Enquiry</a>
+                <a
+                  href="#/all-admin"
+                  :class="$route.path == '/all-admin' ? 'mm-active' : ''"
+                >
+                  <i class="metismenu-icon"> </i>All Admin
+                </a>
               </li>
-              <li><a href="admin-seminar-enquiry.html">Seminar Enquiry</a></li>
-              <li><a href="admin-event-enquiry.html">Event Enquiry</a></li>
-              <li><a href="admin-common-enquiry.html">Common Enquiry</a></li>
+              <li>
+                <a
+                  href="#/create-admin"
+                  :class="$route.path == '/create-admin' ? 'mm-active' : ''"
+                >
+                  <i class="metismenu-icon"> </i>Create Admin
+                </a>
+              </li>
             </ul>
-          </div>
-        </li>
-        <li>
-          <a href="javascript:void(0)" class="collapsible-header"
-            ><i class="fa fa-cloud-download" aria-hidden="true"></i> Import &
-            Export</a
-          >
-          <div class="collapsible-body left-sub-menu">
+          </li>
+          <li class="app-sidebar__heading">UI Components</li>
+          <li>
+            <a href="#">
+              <i class="metismenu-icon pe-7s-diamond"></i>
+              Elements
+              <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+            </a>
             <ul>
-              <li><a href="admin-export-data.html">Export all datas</a></li>
-              <li><a href="admin-import-data.html">Import all datas</a></li>
+              <li>
+                <a href="elements-buttons-standard.html">
+                  <i class="metismenu-icon"></i>
+                  Buttons
+                </a>
+              </li>
+              <li>
+                <a href="elements-dropdowns.html">
+                  <i class="metismenu-icon"> </i>Dropdowns
+                </a>
+              </li>
+              <li>
+                <a href="elements-icons.html">
+                  <i class="metismenu-icon"> </i>Icons
+                </a>
+              </li>
+              <li>
+                <a href="elements-badges-labels.html">
+                  <i class="metismenu-icon"> </i>Badges
+                </a>
+              </li>
+              <li>
+                <a href="elements-cards.html">
+                  <i class="metismenu-icon"> </i>Cards
+                </a>
+              </li>
+              <li>
+                <a href="elements-list-group.html">
+                  <i class="metismenu-icon"> </i>List Groups
+                </a>
+              </li>
+              <li>
+                <a href="elements-navigation.html">
+                  <i class="metismenu-icon"> </i>Navigation Menus
+                </a>
+              </li>
+              <li>
+                <a href="elements-utilities.html">
+                  <i class="metismenu-icon"> </i>Utilities
+                </a>
+              </li>
             </ul>
-          </div>
-        </li>
-      </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class="metismenu-icon pe-7s-car"></i>
+              Components
+              <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+            </a>
+            <ul>
+              <li>
+                <a href="components-tabs.html">
+                  <i class="metismenu-icon"> </i>Tabs
+                </a>
+              </li>
+              <li>
+                <a href="components-accordions.html">
+                  <i class="metismenu-icon"> </i>Accordions
+                </a>
+              </li>
+              <li>
+                <a href="components-notifications.html">
+                  <i class="metismenu-icon"> </i>Notifications
+                </a>
+              </li>
+              <li>
+                <a href="components-modals.html">
+                  <i class="metismenu-icon"> </i>Modals
+                </a>
+              </li>
+              <li>
+                <a href="components-progress-bar.html">
+                  <i class="metismenu-icon"> </i>Progress Bar
+                </a>
+              </li>
+              <li>
+                <a href="components-tooltips-popovers.html">
+                  <i class="metismenu-icon"> </i>Tooltips &amp; Popovers
+                </a>
+              </li>
+              <li>
+                <a href="components-carousel.html">
+                  <i class="metismenu-icon"> </i>Carousel
+                </a>
+              </li>
+              <li>
+                <a href="components-calendar.html">
+                  <i class="metismenu-icon"> </i>Calendar
+                </a>
+              </li>
+              <li>
+                <a href="components-pagination.html">
+                  <i class="metismenu-icon"> </i>Pagination
+                </a>
+              </li>
+              <li>
+                <a href="components-scrollable-elements.html">
+                  <i class="metismenu-icon"> </i>Scrollable
+                </a>
+              </li>
+              <li>
+                <a href="components-maps.html">
+                  <i class="metismenu-icon"> </i>Maps
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="tables-regular.html">
+              <i class="metismenu-icon pe-7s-display2"></i>
+              Tables
+            </a>
+          </li>
+          <li class="app-sidebar__heading">Widgets</li>
+          <li>
+            <a href="dashboard-boxes.html">
+              <i class="metismenu-icon pe-7s-display2"></i>
+              Dashboard Boxes
+            </a>
+          </li>
+          <li class="app-sidebar__heading">Forms</li>
+          <li>
+            <a href="forms-controls.html">
+              <i class="metismenu-icon pe-7s-mouse"> </i>Forms Controls
+            </a>
+          </li>
+          <li>
+            <a href="forms-layouts.html">
+              <i class="metismenu-icon pe-7s-eyedropper"> </i>Forms Layouts
+            </a>
+          </li>
+          <li>
+            <a href="forms-validation.html">
+              <i class="metismenu-icon pe-7s-pendrive"> </i>Forms Validation
+            </a>
+          </li>
+          <li class="app-sidebar__heading">Charts</li>
+          <li>
+            <a href="charts-chartjs.html">
+              <i class="metismenu-icon pe-7s-graph2"> </i>ChartJS
+            </a>
+          </li>
+          <li class="app-sidebar__heading">PRO Version</li>
+          <li>
+            <a
+              href="https://dashboardpack.com/theme-details/architectui-dashboard-html-pro/"
+              target="_blank"
+            >
+              <i class="metismenu-icon pe-7s-graph2"> </i>
+              Upgrade to PRO
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>

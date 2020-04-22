@@ -1,65 +1,78 @@
 <template>
-  <section>
-    <div class="ad-log-main">
-      <div class="ad-log-in">
-        <div class="ad-log-in-logo">
-          <router-link to="/">
-            <img src="images/logo.png" alt="" />
-          </router-link>
-        </div>
-        <div class="ad-log-in-con">
-          <div class="log-in-pop-right">
-            <h4>Login</h4>
-            <div
-              class="alert"
-              v-show="error !== null || success !== null"
-              :class="error !== null ? 'alert-warning' : 'alert-success'"
-            >
-              {{ error !== null ? error : success }}
-            </div>
-            <form class="s12">
-              <div>
-                <div class="input-field s12">
-                  <input type="text" v-model="user.username" class="validate" />
-                  <label class="">User name</label>
+  <div class="app-container app-theme-white body-tabs-shadow">
+    <div class="app-container">
+      <div class="h-100 bg-plum-plate bg-animation">
+        <div class="d-flex h-100 justify-content-center align-items-center">
+          <div class="mx-auto app-login-box col-md-8">
+            <div class="app-logo-inverse mx-auto mb-3"></div>
+            <div class="modal-dialog w-100 mx-auto">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <div class="h5 modal-title text-center">
+                    <h4 class="mt-2">
+                      <div>Welcome back,</div>
+                      <span>Please sign in to your account below.</span>
+                    </h4>
+                  </div>
+                  <div
+                    class="alert"
+                    v-show="error !== null || success !== null"
+                    :class="error !== null ? 'alert-warning' : 'alert-success'"
+                  >
+                    {{ error !== null ? error : success }}
+                  </div>
+                  <form class="">
+                    <div class="form-row">
+                      <div class="col-md-12">
+                        <div class="position-relative form-group">
+                          <input
+                            name="username"
+                            placeholder="Username here..."
+                            type="text"
+                            v-model="user.username"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="position-relative form-group">
+                          <input
+                            name="password"
+                            placeholder="Password here..."
+                            v-model="user.password"
+                            type="password"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </form>
                 </div>
-              </div>
-              <div>
-                <div class="input-field s12">
-                  <input
-                    type="password"
-                    v-model="user.password"
-                    class="validate"
-                  />
-                  <label>Password</label>
-                </div>
-              </div>
-              <div>
-                <div class="input-field s4">
-                  <i
-                    class="waves-effect waves-light log-in-btn waves-input-wrapper"
-                    style=""
-                    ><input
-                      type="submit"
+                <div class="modal-footer clearfix">
+                  <div class="float-right">
+                    <button
+                      class="btn btn-primary btn-lg"
                       @click.prevent="loginUser()"
-                      value="Login"
-                      class="waves-button-input"
-                  /></i>
+                    >
+                      Login to Dashboard
+                    </button>
+                  </div>
                 </div>
               </div>
-            </form>
+            </div>
+            <div class="text-center text-white opacity-8 mt-3">
+              Copyright © NXT 2020
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 <script>
 /* eslint-disable no-undef */
 import AuthenticationService from "@/services/AuthenticationService";
-// import { mapState } from "vuex";
 export default {
-  // computed: mapState(["token"]),
   name: "Login",
   metaInfo: {
     // all titles will be injected into this template
@@ -67,19 +80,17 @@ export default {
     meta: [
       {
         name: "description",
-        content: "We are coming soon"
+        content: "We are coming soon",
       },
       {
         name: "keywords",
-        content: "We will fix this soon"
-      }
-    ]
+        content: "We will fix this soon",
+      },
+    ],
   },
   beforeMount() {
     if (this.$store.state.isUserLoggedIn) {
-      this.$router.push({
-        name: "dashboard"
-      });
+      this.$router.push("/dashboard");
     }
   },
   data() {
@@ -95,21 +106,31 @@ export default {
   methods: {
     loginUser() {
       if (this.validateLogin()) {
-        AuthenticationService.login(this.user)
-          .then(result => {
-            this.$store.dispatch("login", result.data);
-            this.$router.push({
-              name: "dashboard"
+        if (navigator.onLine) {
+          AuthenticationService.login(this.user)
+            .then(result => {
+              console.log(result);
+              this.$store.dispatch("login", result.data);
+              this.$router.push({
+                name: "dashboard"
+              });
+              location.reload();
+            })
+            .catch((err) => {
+              this.$fire({
+                title: err.response.statusText,
+                text: err.response.data.message,
+                type: "error"
+              });
+              NProgress.done();
             });
-            location.reload();
-          })
-          .catch(() => {
-            this.error = "Invalid credentials";
-            NProgress.done();
-            setTimeout(() => {
-              this.error = null;
-            }, 2000);
+        } else {
+          this.$fire({
+            title: "Network Error",
+            text: "Please check your internet connection and try again",
+            type: "error"
           });
+        }
       }
     },
     validateLogin() {
@@ -122,8 +143,8 @@ export default {
       } else {
         this.error = "Username is required";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>

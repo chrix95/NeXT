@@ -1,66 +1,64 @@
 <template>
-  <div class="sb2-2">
-    <!--== breadcrumbs ==-->
+  <div class="app-main__inner">
     <breadcrumb />
-    <!--== User Details ==-->
-    <div class="sb2-2-3">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="box-inn-sp">
-            <div class="inn-title">
-              <h4>Admins Details</h4>
-              <p>
-                All about students like name, student id, phone, email, country,
-                city and more
-              </p>
-            </div>
-            <div class="tab-inn">
-              <div class="table-responsive table-desi">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th>Username</th>
-                      <th>Type</th>
-                      <th>Phone</th>
-                      <th>Email</th>
-                      <th>Gender</th>
-                      <th>Date of birth</th>
-                      <th>Last Logged In</th>
-                      <th>Status</th>
-                      <th>View</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr v-if="loading">
-                      <loading />
-                    </tr>
-                    <tr v-else v-for="(admin, index) in admins" :key="index">
-                      <td>
-                        <span class="list-img">{{ admin.username }}</span>
-                      </td>
-                      <td>
-                        <span class="list-enq-name capitalize">{{
-                          admin.type
-                        }}</span>
-                      </td>
-                      <td>{{ admin.phone }}</td>
-                      <td>{{ admin.email }}</td>
-                      <td>{{ admin.gender }}</td>
-                      <td>{{ admin.dob }}</td>
-                      <td>{{ admin.lastLoginAt }}</td>
-                      <td>
-                        <span class="label label-success">Active</span>
-                      </td>
-                      <td>
-                        <a href="admin-student-details.html" class="ad-st-view"
-                          >View</a
-                        >
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="main-card mb-3 card">
+          <div class="card-body">
+            <h5 class="card-title">Admin Details</h5>
+            <table class="mb-0 table table-borderless">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Username</th>
+                  <th>Type</th>
+                  <th>Phone</th>
+                  <th>Email</th>
+                  <th>Gender</th>
+                  <th>Date of birth</th>
+                  <th>Last Logged In</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-if="loading">
+                  <loading />
+                </tr>
+                <tr v-else v-for="(admin, index) in admins" :key="index">
+                  <th scope="row">{{ index + 1 }}</th>
+                  <td>
+                    <span class="list-img">{{ admin.username }}</span>
+                  </td>
+                  <td>
+                    <span class="list-enq-name capitalize">{{
+                      admin.type
+                    }}</span>
+                  </td>
+                  <td>{{ admin.phone }}</td>
+                  <td>{{ admin.email }}</td>
+                  <td class="capitalize">{{ admin.gender }}</td>
+                  <td>{{ admin.dob }}</td>
+                  <td>{{ admin.lastLoginAt }}</td>
+                  <td>
+                    <button
+                      class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info btn-sm"
+                      @click.prevent="deleteAdmin(admin.id)"
+                    >
+                      Edit
+                    </button>
+                  </td>
+                  <td v-if="admin.id !== $store.state.user.id">
+                    <button
+                      class="mb-2 mr-2 border-0 btn-transition btn btn-outline-danger btn-sm"
+                      @click.prevent="deleteAdmin(admin.id)"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -80,17 +78,17 @@ export default {
     meta: [
       {
         name: "description",
-        content: "We are coming soon"
+        content: "We are coming soon",
       },
       {
         name: "keywords",
-        content: "We will fix this soon"
-      }
-    ]
+        content: "We will fix this soon",
+      },
+    ],
   },
   components: {
     Breadcrumb,
-    Loading
+    Loading,
   },
   mounted() {
     this.getAdmins();
@@ -98,24 +96,46 @@ export default {
   data() {
     return {
       loading: false,
-      admins: null
+      admins: null,
     };
   },
   methods: {
     getAdmins() {
-      this.loading = true;
-      AdminService.get_all_admins()
-        .then(result => {
-          this.admins = result.data.data;
-          this.loading = false;
-        })
-        .catch(err => {
-          this.loading = false;
-          console.log(err.response);
-          if (err.response.status === 401) {
-            this.$store.dispatch("logout");
-          }
+      if (navigator.onLine) {
+        this.loading = true;
+        AdminService.get_all_admins()
+          .then((result) => {
+            this.admins = result.data.data;
+            this.loading = false;
+          })
+          .catch((err) => {
+            this.loading = false;
+            if (err.response === undefined) {
+              this.$fire("Oops! took long to get a response");
+            }
+            if (err.response && err.response.status === 401) {
+              this.$fire("Oops! " + err.response.data.message);
+            }
+            NProgress.done();
+          });
+      } else {
+        this.$fire({
+          title: "Network Error",
+          text: "Please check your internet connection and try again",
+          type: "error"
         });
+      }
+    },
+    deleteAdmin(id) {
+      this.$confirm("Are you sure?").then((response) => {
+        //do something...
+        if (response) {
+          console.log(response);
+          console.log(id);
+        } else {
+          console.log("Not ready");
+        }
+      });
     }
   }
 };
