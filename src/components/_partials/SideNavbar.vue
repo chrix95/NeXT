@@ -73,7 +73,7 @@
                   href="#/all-admin"
                   :class="$route.path == '/all-admin' ? 'mm-active' : ''"
                 >
-                  <i class="metismenu-icon"> </i>All Admin
+                  All Admin
                 </a>
               </li>
               <li>
@@ -86,8 +86,13 @@
               </li>
             </ul>
           </li>
-          <li class="app-sidebar__heading">Settings</li>
-          <li>
+          <li
+            class="app-sidebar__heading"
+            v-if="$store.state.userType == 'admin'"
+          >
+            Settings
+          </li>
+          <li v-if="$store.state.userType == 'admin'">
             <a
               href="#/update-profile"
               :class="$route.path == '/update-profile' ? 'mm-active' : ''"
@@ -95,7 +100,7 @@
               <i class="metismenu-icon pe-7s-user"> </i>Update Profile
             </a>
           </li>
-          <li>
+          <li v-if="$store.state.userType == 'admin'">
             <a
               href="#/change-password"
               :class="$route.path == '/change-password' ? 'mm-active' : ''"

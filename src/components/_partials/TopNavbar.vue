@@ -102,15 +102,21 @@
                     aria-hidden="true"
                     class="dropdown-menu dropdown-menu-right"
                   >
-                    <button type="button" tabindex="0" class="dropdown-item">
+                    <button
+                      type="button"
+                      tabindex="0"
+                      class="dropdown-item"
+                      @click.prevent="changeRoute('/update-profile')"
+                    >
                       User Account
                     </button>
-                    <button type="button" tabindex="0" class="dropdown-item">
+                    <button
+                      type="button"
+                      tabindex="0"
+                      class="dropdown-item"
+                      @click.prevent="changeRoute('/change-password')"
+                    >
                       Settings
-                    </button>
-                    <h6 tabindex="-1" class="dropdown-header">Header</h6>
-                    <button type="button" tabindex="0" class="dropdown-item">
-                      Actions
                     </button>
                     <div tabindex="-1" class="dropdown-divider"></div>
                     <button
@@ -165,6 +171,9 @@ export default {
     logout() {
       this.$store.dispatch("logout");
       this.$fire("Logout sucessful");
+    },
+    changeRoute(path) {
+      this.$router.push({ path: `${path}` });
     }
   }
 };
