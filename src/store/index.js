@@ -18,9 +18,7 @@ export default new Vuex.Store({
       state.userType = credentials.data.type;
       localStorage.setItem("login", JSON.stringify(credentials));
       state.isUserLoggedIn = true;
-      axios.defaults.headers.common[
-        "Authorization"
-      ] = `Bearer ${credentials.token}`;
+      axios.defaults.headers.common["Authorization"] = `${credentials.token}`;
     },
     CLEAR_USER_DATA() {
       localStorage.removeItem("login");

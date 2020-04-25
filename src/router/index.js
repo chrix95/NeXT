@@ -20,13 +20,26 @@ const routes = [
   {
     path: "/all-admin",
     name: "All Admin",
-    component: () => import("../views/AllAdmin.vue"),
+    component: () => import("../views/Admin/AllAdmin.vue"),
     meta: { requiresAuth: true }
   },
   {
     path: "/create-admin",
     name: "Create Admin",
-    component: () => import("../views/CreateAdmin.vue"),
+    component: () => import("../views/Admin/CreateAdmin.vue"),
+    meta: { requiresAuth: true }
+  },
+  {
+    path: "/edit-admin/:id",
+    name: "Edit Admin Super",
+    component: () => import("../views/Admin/EditAdmin.vue"),
+    props: true,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: "/update-profile",
+    name: "Update Profile",
+    component: () => import("../views/Profile/UpdateProfile.vue"),
     meta: { requiresAuth: true }
   },
   {

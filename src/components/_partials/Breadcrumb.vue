@@ -22,8 +22,4 @@ export default {
   methods: {}
 };
 </script>
-<style scoped>
-.capitalize {
-  text-transform: capitalize;
-}
-</style>
+<style scoped></style>

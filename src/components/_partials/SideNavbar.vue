@@ -55,10 +55,15 @@
               Dashboard
             </a>
           </li>
-          <li class="app-sidebar__heading">Admin Module</li>
-          <li>
+          <li
+            class="app-sidebar__heading"
+            v-if="$store.state.userType == 'super'"
+          >
+            Admin Module
+          </li>
+          <li v-if="$store.state.userType == 'super'">
             <a href="#">
-              <i class="metismenu-icon pe-7s-diamond"></i>
+              <i class="metismenu-icon pe-7s-config"></i>
               Admin Module
               <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
             </a>
@@ -80,6 +85,23 @@
                 </a>
               </li>
             </ul>
+          </li>
+          <li class="app-sidebar__heading">Settings</li>
+          <li>
+            <a
+              href="#/update-profile"
+              :class="$route.path == '/update-profile' ? 'mm-active' : ''"
+            >
+              <i class="metismenu-icon pe-7s-user"> </i>Update Profile
+            </a>
+          </li>
+          <li>
+            <a
+              href="#/change-password"
+              :class="$route.path == '/change-password' ? 'mm-active' : ''"
+            >
+              <i class="metismenu-icon pe-7s-door-lock"> </i>Change Password
+            </a>
           </li>
           <li class="app-sidebar__heading">UI Components</li>
           <li>

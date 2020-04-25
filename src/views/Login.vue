@@ -14,13 +14,6 @@
                       <span>Please sign in to your account below.</span>
                     </h4>
                   </div>
-                  <div
-                    class="alert"
-                    v-show="error !== null || success !== null"
-                    :class="error !== null ? 'alert-warning' : 'alert-success'"
-                  >
-                    {{ error !== null ? error : success }}
-                  </div>
                   <form class="">
                     <div class="form-row">
                       <div class="col-md-12">
@@ -53,8 +46,17 @@
                     <button
                       class="btn btn-primary btn-lg"
                       @click.prevent="loginUser()"
+                      v-if="!loading"
                     >
                       Login to Dashboard
+                    </button>
+                    <button
+                      class="btn btn-primary btn-lg"
+                      @click.prevent="loginUser()"
+                      disabled
+                      v-else
+                    >
+                      Loading
                     </button>
                   </div>
                 </div>
@@ -95,18 +97,18 @@ export default {
   },
   data() {
     return {
+      loading: false,
       user: {
         username: "super",
         password: "123456"
-      },
-      error: null,
-      success: null
+      }
     };
   },
   methods: {
     loginUser() {
       if (this.validateLogin()) {
         if (navigator.onLine) {
+          this.loading = true;
           AuthenticationService.login(this.user)
             .then(result => {
               console.log(result);
@@ -116,13 +118,17 @@ export default {
               });
               location.reload();
             })
-            .catch((err) => {
+            .catch(err => {
+              this.loading = false;
+              if (err.response === undefined) {
+                this.$fire("Oops! took long to get a response");
+                NProgress.done();
+              }
               this.$fire({
                 title: err.response.statusText,
                 text: err.response.data.message,
                 type: "error"
               });
-              NProgress.done();
             });
         } else {
           this.$fire({
@@ -138,16 +144,22 @@ export default {
         if (this.user.password) {
           return true;
         } else {
-          this.error = "Password is required";
+          this.$alert("Password is required");
         }
       } else {
-        this.error = "Username is required";
+        this.$alert("Username is required");
       }
-    },
-  },
+    }
+  }
 };
 </script>
 <style scoped>
+.bg-plum-plate {
+  background-image: linear-gradient(135deg, #eac166 0%, #a2554b 100%) !important;
+}
+.bg-animation {
+  animation: bg-pan-left 60s both;
+}
 .log-in-pop-right {
   float: left;
   width: 100%;
