@@ -1,4 +1,4 @@
-# nxt
+# NXT Project
 
 ## Project setup
 ```
