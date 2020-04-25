@@ -20,6 +20,12 @@ export default new Vuex.Store({
       state.isUserLoggedIn = true;
       axios.defaults.headers.common["Authorization"] = `${credentials.token}`;
     },
+    UPDATE_USER_DATA(state, credentials) {
+      let login = JSON.parse(localStorage.getItem("login"));
+      login.data = credentials;
+      state.user = credentials;
+      localStorage.setItem("login", JSON.stringify(login));
+    },
     CLEAR_USER_DATA() {
       localStorage.removeItem("login");
       location.reload();
@@ -34,6 +40,9 @@ export default new Vuex.Store({
     },
     logout({ commit }) {
       commit("CLEAR_USER_DATA");
+    },
+    updateUserData({ commit }, credentials) {
+      commit("UPDATE_USER_DATA", credentials);
     }
   },
   modules: {}
