@@ -5,36 +5,37 @@
       <div class="col-lg-8">
         <div class="main-card mb-3 card">
           <div class="card-body">
-            <form @submit.prevent="updateAdmin()">
+            <form @submit.prevent="changePassword()">
               <div class="form-row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <div class="position-relative form-group">
-                    <label for="phone" class="">Phone</label
+                    <label for="phone" class="">Current Password</label
                     ><input
                       name="phone"
-                      type="text"
-                      v-model="field.phone"
+                      type="password"
+                      v-model="field.old_password"
                       class="form-control"
                     />
                   </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <div class="position-relative form-group">
-                    <label for="phone" class="">Gender</label>
-                    <select class="mb-2 form-control" v-model="field.gender">
-                      <option>Select an option</option>
-                      <option value="male">Male</option>
-                      <option value="female">Female</option>
-                    </select>
+                    <label for="phone" class="">New Password</label
+                    ><input
+                      name="phone"
+                      type="password"
+                      v-model="field.new_password"
+                      class="form-control"
+                    />
                   </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                   <div class="position-relative form-group">
-                    <label for="dob" class="">Date of Birth</label
+                    <label for="dob" class="">Confirm new password</label
                     ><input
                       name="dob"
-                      type="date"
-                      v-model="field.dob"
+                      type="password"
+                      v-model="confirm_password"
                       class="form-control"
                     />
                   </div>
@@ -42,7 +43,7 @@
               </div>
               <div v-if="!loading">
                 <button type="submit" class="mt-2 btn btn-primary">
-                  Update Admin
+                  Update Password
                 </button>
               </div>
               <div v-else>
@@ -61,9 +62,8 @@
 /* eslint-disable no-undef */
 import AdminSettingsService from "@/services/AdminSettingsService";
 import Breadcrumb from "@/components/_partials/Breadcrumb";
-import { mapState } from "vuex";
 export default {
-  name: "UpdateProfile",
+  name: "ChangePassword",
   metaInfo: {
     // all titles will be injected into this template
     titleTemplate: "%s | Dashboard",
@@ -74,46 +74,42 @@ export default {
       },
       {
         name: "keywords",
-        content: "We will fix this soon",
-      },
-    ],
+        content: "We will fix this soon"
+      }
+    ]
   },
   components: {
     Breadcrumb
   },
-  computed: {
-    ...mapState(["user"])
-  },
-  mounted() {
-    this.field.dob = this.user.dob.substr(0, 10);
-    this.field.phone = this.user.phone;
-    this.field.gender = this.user.gender;
-  },
+  computed: {},
+  mounted() {},
   data() {
     return {
       loading: false,
       field: {
-        dob: "",
-        phone: "",
-        gender: ""
-      }
+        old_password: "",
+        new_password: ""
+      },
+      confirm_password: ""
     };
   },
   methods: {
-    updateAdmin() {
-      if (this.validateUpdate()) {
+    changePassword() {
+      if (this.validatePasswordChange()) {
         this.loading = true;
         if (navigator.onLine) {
-          AdminSettingsService.update_profile(this.field)
+          AdminSettingsService.change_password(this.field)
             .then(result => {
               this.loading = false;
               if (result.data.status == 1) {
-                this.$store.dispatch("updateUserData", result.data.data);
                 this.$fire({
-                  title: "Profile update",
-                  text: "Your profile has been updated successfully",
+                  title: "Password update",
+                  text: "Your password has been updated successfully",
                   type: "success"
                 });
+                setTimeout(() => {
+                  this.$store.dispatch("logout");
+                }, 2500);
               } else {
                 this.$fire("Oops! " + result.data.message);
               }
@@ -144,27 +140,27 @@ export default {
         }
       }
     },
-    validateUpdate() {
-      if (this.field.phone && this.field.phone.toString().length === 11) {
-        if (this.field.gender) {
-          if (this.field.dob) {
+    validatePasswordChange() {
+      if (this.field.old_password) {
+        if (this.field.new_password) {
+          if (this.field.new_password == this.confirm_password) {
             return true;
           } else {
             this.$fire({
               type: "warning",
-              title: "Enter date of birth"
+              title: "Confirm password doesn't match"
             });
           }
         } else {
           this.$fire({
             type: "warning",
-            title: "Gender is required"
+            title: "New password is required"
           });
         }
       } else {
         this.$fire({
           type: "warning",
-          title: "Phone number must be 11 digits"
+          title: "Old password is required"
         });
       }
     }

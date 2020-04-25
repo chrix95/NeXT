@@ -11,8 +11,9 @@ import Api from "@/services/Api";
 // }
 export default {
   update_profile(credentials) {
-    console.log("We are here credentials");
-    console.log(credentials);
     return Api().put("admin/self", credentials);
+  },
+  change_password(credentials) {
+    return Api().put("admin/password", credentials);
   }
 };

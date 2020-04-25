@@ -119,6 +119,9 @@ export default {
             }
             if (err.response && err.response.status === 401) {
               this.$fire("Oops! " + err.response.data.message);
+              setTimeout(() => {
+                this.$store.dispatch("logout");
+              }, 3000);
             }
             NProgress.done();
           });
@@ -151,6 +154,9 @@ export default {
                 }
                 if (err.response && err.response.status === 401) {
                   this.$fire("Oops! " + err.response.data.message);
+                  setTimeout(() => {
+                    this.$store.dispatch("logout");
+                  }, 3000);
                 }
                 NProgress.done();
               });
