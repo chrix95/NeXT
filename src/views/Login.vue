@@ -56,7 +56,7 @@
                       disabled
                       v-else
                     >
-                      Loading
+                      Loading...
                     </button>
                   </div>
                 </div>
@@ -99,8 +99,8 @@ export default {
     return {
       loading: false,
       user: {
-        username: "super",
-        password: "123456"
+        username: "",
+        password: ""
       }
     };
   },
@@ -120,6 +120,7 @@ export default {
             })
             .catch(err => {
               this.loading = false;
+              NProgress.done();
               if (err.response === undefined) {
                 this.$fire("Oops! took long to get a response");
                 NProgress.done();
