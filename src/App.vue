@@ -49,15 +49,6 @@ export default {
 .capitalize {
   text-transform: capitalize;
 }
-/* .swal2-styled.swal2-confirm {
-  font-size: 0.8em;
-}
-.swal2-title {
-  font-size: 1.4em;
-}
-.swal2-content {
-  font-size: 0.9em;
-} */
 .swal2-popup {
   font-size: 0.8rem !important;
 }

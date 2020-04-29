@@ -7,10 +7,10 @@
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>NXT</title>
     <!-- ALL CSS FILES -->
-    <link href="<%= BASE_URL %>assets/css/main.css" rel="stylesheet">
+    <link href="<%= BASE_URL %>assets/css/main.css" rel="stylesheet" />
     <!-- NPROGRESS PLUGIN -->
-    <link href="https://unpkg.com/nprogress@0.2.0/nprogress.css" rel="stylesheet" />
-    <script src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
+    <link href="<%= BASE_URL %>assets/css/nprogress.css" rel="stylesheet" />
+    <script src="<%= BASE_URL %>assets/scripts/nprogress.js" rel="preload"></script>
   </head>
   <body>
     <noscript>
@@ -19,6 +19,6 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
     <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="<%= BASE_URL %>assets/scripts/main.js"></script>
+    <script type="text/javascript" src="<%= BASE_URL %>assets/scripts/main.js" rel="prefetch"></script>
   </body>
 </html>

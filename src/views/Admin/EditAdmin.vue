@@ -167,6 +167,7 @@ export default {
   methods: {
     getOneAdmin(adminId) {
       if (navigator.onLine) {
+        this.loading = true;
         AdminService.get_one_admin(adminId)
           .then(result => {
             this.user.id = result.data.data.id;
