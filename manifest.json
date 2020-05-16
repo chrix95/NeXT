@@ -1,0 +1,22 @@
+{
+  "short_name": "NXT",
+  "name": "NXT PWA",
+  "description": "NXT is coming close to you for all your artisan needs",
+  "icons": [
+    {
+      "src": "/192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "index.html",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+  "scope": "index.html",
+  "theme_color": "#FFFFFF"
+}

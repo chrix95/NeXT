@@ -5,7 +5,10 @@
       <div class="col-lg-12">
         <div class="main-card mb-3 card">
           <div class="card-body">
-            <h5 class="card-title">Admin Details</h5>
+            <h5 class="card-title">
+              Agents
+              <span class="pull-right">Page: {{ page }}  |  Total agent(s): {{ total }}</span>
+            </h5>
             <div class="table-responsive">
               <table class="mb-0 table table-borderless text-center">
                 <thead>
@@ -16,7 +19,7 @@
                     <th>Phone</th>
                     <th>Email</th>
                     <th>Gender</th>
-                    <th>Date of birth</th>
+                    <th>Active</th>
                     <th>Last Logged In</th>
                     <th>Edit</th>
                     <th>Delete</th>
@@ -26,34 +29,34 @@
                   <tr v-if="loading">
                     <loading />
                   </tr>
-                  <tr v-else v-for="(admin, index) in admins" :key="index">
+                  <tr v-else v-for="(agent, index) in agents" :key="index">
                     <th scope="row">{{ index + 1 }}</th>
                     <td>
-                      <span class="list-img">{{ admin.username }}</span>
+                      <span class="list-img">{{ agent.username }}</span>
                     </td>
                     <td>
                       <span class="list-enq-name capitalize">{{
-                        admin.type
+                        agent.type
                       }}</span>
                     </td>
-                    <td>{{ admin.phone }}</td>
-                    <td>{{ admin.email }}</td>
-                    <td class="capitalize">{{ admin.gender }}</td>
-                    <td>{{ admin.dob }}</td>
-                    <td>{{ admin.lastLoginAt }}</td>
+                    <td>{{ agent.phone }}</td>
+                    <td>{{ agent.email }}</td>
+                    <td class="capitalize">{{ agent.gender }}</td>
+                    <td>{{ agent.active ? 'Active' : 'Inactive' }}</td>
+                    <td>{{ agent.lastLoginAt }}</td>
                     <td>
                       <button
                         class="mb-2 mr-2 border-0 btn-transition btn btn-outline-info btn-sm"
-                        @click.prevent="editAdmin(admin.id)"
+                        @click.prevent="viewAgent(agent.id)"
                       >
                         <i class="metismenu-icon pe-7s-pen"> </i>
-                        Edit
+                        View
                       </button>
                     </td>
-                    <td v-if="admin.id !== $store.state.user.id">
+                    <td>
                       <button
                         class="mb-2 mr-2 border-0 btn-transition btn btn-outline-danger btn-sm"
-                        @click.prevent="deleteAdmin(admin.id)"
+                        @click.prevent="deleteAgent(agent.id)"
                       >
                         <i class="metismenu-icon pe-7s-delete-user"> </i>
                         Delete
@@ -62,6 +65,14 @@
                   </tr>
                 </tbody>
               </table>
+              <div class="text-center" v-if="!loading && moreBtn">
+                <button type="submit" class="mt-2 btn btn-primary" @click="loadMoreAgents()" v-if="!loadmore">
+                  Load more
+                </button>
+                <button type="submit" class="mt-2 btn btn-primary" v-else>
+                  <i class="pe-7s-refresh pe-spin"></i> Loading...
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -71,14 +82,14 @@
 </template>
 <script>
 /* eslint-disable no-undef */
-import AdminService from "@/services/AdminService";
+import AgentService from "@/services/AgentService";
 import Breadcrumb from "@/components/_partials/Breadcrumb";
 import Loading from "@/components/_partials/Loading";
 export default {
-  name: "AllAdmin",
+  name: "AllAgents",
   metaInfo: {
     // all titles will be injected into this template
-    titleTemplate: "%s | Admins",
+    titleTemplate: "%s | Agents",
     meta: [
       {
         name: "description",
@@ -95,21 +106,29 @@ export default {
     Loading
   },
   mounted() {
-    this.getAdmins();
+    this.getAgents();
   },
   data() {
     return {
       loading: false,
-      admins: null
+      agents: null,
+      moreBtn: false,
+      page: 0,
+      total: null,
+      loadmore: false
     };
   },
   methods: {
-    getAdmins() {
+    getAgents() {
       if (navigator.onLine) {
         this.loading = true;
-        AdminService.get_all_admins()
+        AgentService.get_all_agents()
           .then(result => {
-            this.admins = result.data.data;
+            this.agents = result.data.data;
+            // this.moreBtn = result.data.more;
+            this.moreBtn = true;
+            this.total = result.data.total;
+            this.page += 1;
             this.loading = false;
           })
           .catch(err => {
@@ -133,7 +152,45 @@ export default {
         });
       }
     },
-    deleteAdmin(adminId) {
+    loadMoreAgents() {
+      if (navigator.onLine) {
+        this.loadmore = true;
+        const data = {
+          page: this.page + 1,
+          sort: "asc"
+        }
+        AgentService.load_more_agent(data)
+          .then(result => {
+            let moreAgent = result.data.data;
+            moreAgent.forEach(element => {
+              this.agents.push(element);
+            });
+            this.moreBtn = result.data.more;
+            this.page++;
+            this.loadmore = false;
+          })
+          .catch(err => {
+            this.loadmore = false;
+            if (err.response === undefined) {
+              this.$fire("Oops! took long to get a response");
+            }
+            if (err.response && err.response.status === 401) {
+              this.$fire("Oops! " + err.response.data.message);
+              setTimeout(() => {
+                this.$store.dispatch("logout");
+              }, 3000);
+            }
+            NProgress.done();
+          });
+      } else {
+        this.$fire({
+          title: "Network Error",
+          text: "Please check your internet connection and try again",
+          type: "error"
+        });
+      }
+    },
+    deleteAgent(adminId) {
       if (navigator.onLine) {
         this.$confirm("Are you sure?").then(response => {
           if (response) {
@@ -170,9 +227,9 @@ export default {
         });
       }
     },
-    editAdmin(adminId) {
+    viewAgent(adminId) {
       this.$router.push({
-        name: "Edit Admin Super",
+        name: "View Agent",
         params: { id: adminId }
       });
     }

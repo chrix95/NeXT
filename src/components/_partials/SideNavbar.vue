@@ -45,16 +45,19 @@
     <div class="scrollbar-sidebar">
       <div class="app-sidebar__inner">
         <ul class="vertical-nav-menu">
+          <!-- Dashboard Module begins -->
           <li class="app-sidebar__heading">Dashboard</li>
           <li>
             <a
-              href="#/dashboard"
+              href="/"
               :class="$route.path == '/dashboard' ? 'mm-active' : ''"
             >
               <i class="metismenu-icon pe-7s-rocket"></i>
               Dashboard
             </a>
           </li>
+          <!-- Dashboard Module ends -->
+          <!-- Admin Module begins -->
           <li
             class="app-sidebar__heading"
             v-if="$store.state.userType == 'super'"
@@ -88,11 +91,34 @@
           </li>
           <li
             class="app-sidebar__heading"
-            v-if="$store.state.userType == 'admin'"
+          >
+            User and Worker Module
+          </li>
+          <li>
+            <a href="#">
+              <i class="metismenu-icon pe-7s-users"></i>
+              User and Worker Module
+              <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+            </a>
+            <ul>
+              <li>
+                <a
+                  href="#/all-agents"
+                  :class="$route.path == '/all-agents' ? 'mm-active' : ''"
+                >
+                  All Agents
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!-- Admin Module ends -->
+          <!-- Settings Module begins -->
+          <li
+            class="app-sidebar__heading"
           >
             Settings
           </li>
-          <li v-if="$store.state.userType == 'admin'">
+          <li>
             <a
               href="#/update-profile"
               :class="$route.path == '/update-profile' ? 'mm-active' : ''"
@@ -100,7 +126,7 @@
               <i class="metismenu-icon pe-7s-user"> </i>Update Profile
             </a>
           </li>
-          <li v-if="$store.state.userType == 'admin'">
+          <li>
             <a
               href="#/change-password"
               :class="$route.path == '/change-password' ? 'mm-active' : ''"
@@ -108,6 +134,7 @@
               <i class="metismenu-icon pe-7s-door-lock"> </i>Change Password
             </a>
           </li>
+          <!-- Settings Module ends -->
         </ul>
       </div>
     </div>

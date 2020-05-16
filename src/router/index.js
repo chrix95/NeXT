@@ -49,6 +49,12 @@ const routes = [
     meta: { requiresAuth: true }
   },
   {
+    path: "/all-agents",
+    name: "All Agents",
+    component: () => import("../views/Agents/AllAgents.vue"),
+    meta: { requiresAuth: true }
+  },
+  {
     path: "*",
     name: "404",
     component: () => import("../views/404.vue")
