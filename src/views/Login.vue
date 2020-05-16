@@ -18,7 +18,9 @@
                     <div class="form-row">
                       <div class="col-md-12">
                         <div class="position-relative form-group">
+                          <label for="username">Username</label>
                           <input
+                            id="username"
                             name="username"
                             placeholder="Username here..."
                             type="text"
@@ -29,7 +31,9 @@
                       </div>
                       <div class="col-md-12">
                         <div class="position-relative form-group">
+                          <label for="password">Password</label>
                           <input
+                            id="password"
                             name="password"
                             placeholder="Password here..."
                             v-model="user.password"
@@ -99,8 +103,8 @@ export default {
     return {
       loading: false,
       user: {
-        username: "",
-        password: ""
+        username: "super",
+        password: "123456"
       }
     };
   },

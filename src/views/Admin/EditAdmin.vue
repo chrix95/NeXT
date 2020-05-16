@@ -214,6 +214,7 @@ export default {
       if (this.validateUpdate()) {
         this.loading = true;
         if (navigator.onLine) {
+          if (this.user.password == "") delete this.user.password
           AdminService.update_admin_by_superadmin(this.user)
             .then(() => {
               this.$router.push({
@@ -250,47 +251,33 @@ export default {
     validateUpdate() {
       if (this.user.username) {
         if (this.user.email) {
-          if (this.user.password) {
-            if (this.user.password == this.confirm_password) {
-              if (this.user.phone && this.user.phone.toString().length === 11) {
-                if (this.user.gender) {
-                  if (this.user.type) {
-                    if (this.user.dob) {
-                      return true;
-                    } else {
-                      this.$fire({
-                        type: "warning",
-                        title: "Enter date of birth"
-                      });
-                    }
-                  } else {
-                    this.$fire({
-                      type: "warning",
-                      title: "Admin type is required"
-                    });
-                  }
+          if (this.user.phone && this.user.phone.toString().length === 11) {
+            if (this.user.gender) {
+              if (this.user.type) {
+                if (this.user.dob) {
+                  return true;
                 } else {
                   this.$fire({
                     type: "warning",
-                    title: "Gender is required"
+                    title: "Enter date of birth"
                   });
                 }
               } else {
                 this.$fire({
                   type: "warning",
-                  title: "Phone number must be 11 digits"
+                  title: "Admin type is required"
                 });
               }
             } else {
               this.$fire({
                 type: "warning",
-                title: "Confirm password doesn't match"
+                title: "Gender is required"
               });
             }
           } else {
             this.$fire({
               type: "warning",
-              title: "Password is required"
+              title: "Phone number must be 11 digits"
             });
           }
         } else {
